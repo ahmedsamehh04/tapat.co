@@ -9,7 +9,7 @@
    to the app, so reloading tapat.co/ after an order stays in the restaurant. */
 (function(){
 var tag=/[?&]restaurant=/.test(location.search);
-if(!tag){try{tag=!!sessionStorage.getItem('taptaste.tagLink')}catch(e){}}
+if(!tag){try{tag=!!sessionStorage.getItem('tapat.tagLink')}catch(e){}}
 if(!tag)return;
 /* Swallow the rest of this page: the parser reads everything after this tag as hidden text, so its images,
    fonts and scripts never load. (Not window.stop(): Chrome then never paints the page again and ignores
@@ -24,7 +24,7 @@ window.addEventListener('unhandledrejection',function(e){var r=e.reason;errors.p
 listen();
 function fail(message){
   document.open();
-  document.write('<!doctype html><html style="color-scheme:light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TapAt</title></head><body style="margin:0;background:#FFFFFF"><div style="font-family:system-ui,sans-serif;max-width:420px;margin:25vh auto 0;padding:0 16px;text-align:center;color:#16141F"><p style="font-size:17px"></p><pre style="white-space:pre-wrap;font-size:12px;color:#5B5769;text-align:left"></pre><button style="font:inherit;font-size:17px;padding:12px 28px;border:0;border-radius:999px;background:#16141F;color:#fff">Reload</button></div></body></html>');
+  document.write('<!doctype html><html style="color-scheme:light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tap@</title></head><body style="margin:0;background:#FFFFFF"><div style="font-family:system-ui,sans-serif;max-width:420px;margin:25vh auto 0;padding:0 16px;text-align:center;color:#16141F"><p style="font-size:17px"></p><pre style="white-space:pre-wrap;font-size:12px;color:#5B5769;text-align:left"></pre><button style="font:inherit;font-size:17px;padding:12px 28px;border:0;border-radius:999px;background:#16141F;color:#fff">Reload</button></div></body></html>');
   document.close();
   document.querySelector('p').textContent=message||"Couldn't open the menu. Check your connection.";
   document.querySelector('pre').textContent=errors.slice(0,5).join('\n');
@@ -53,7 +53,7 @@ setTimeout(check,8000)}).catch(function(e){errors.push(String(e&&e.message||e));
 <meta property="og:title" content="TapAt | order @ your table">
 <meta property="og:description" content="TapAt turns every restaurant table into a smart menu. Guests tap a tag, order from their seat, and you see every order live. No app to download.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TapAt | order @ your table</title>
+<title>Tap@ | order @ your table</title>
 <meta name="description" content="TapAt turns every restaurant table into a smart menu. Guests tap a tag, order from their seat, and you see every order live. No app to download.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
