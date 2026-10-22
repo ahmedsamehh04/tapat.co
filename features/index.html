@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tap@ | every feature</title>
+<meta name="description" content="Every Tap@ feature for guests, owners and cashiers, shown with live screens from Tap@G's.">
+<link rel="canonical" href="https://tapat.co/features/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tapat.co/features/">
+<meta property="og:title" content="Tap@ | every feature">
+<meta property="og:description" content="Every Tap@ feature for guests, owners and cashiers, shown with live screens from Tap@G's.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Unbounded:wght@700;900&display=swap">
+<style>
+/* Layout: Tap@'s own brand (ink, lime, grape; Unbounded + Sora). Full-width bands, one 1120px column inside each;
+   guests get a strip of phone screens, owners get screenshot rows, then cards for everything else. */
+:root{
+  --bg:#FFFFFF; --surface:#F6F4FB; --card:#FFFFFF; --fg:#16141F; --muted:#5B5769; --line:#E4E0F0;
+  --accent:#6C4CF5; --accent-soft:#EEE9FF; --hi:#D4FF3A; --chili:#FF4B2B; --mango:#FFB627;
+  --band:#16141F; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#16141F; --shadow:0 18px 40px -22px rgba(22,20,31,.35);
+  --display:'Unbounded','Arial Black',system-ui,sans-serif;
+  --body:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#110F18; --surface:#18151F; --card:#1E1A29; --fg:#F3F1FA; --muted:#A9A4BA; --line:#2E2940;
+  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#3A3452;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#110F18; --surface:#18151F; --card:#1E1A29; --fg:#F3F1FA; --muted:#A9A4BA; --line:#2E2940;
+  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#3A3452;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+h1,h2,h3,p,ul,figure{margin:0}
+h1,h2,.display{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-height:1.02;text-wrap:balance;text-transform:lowercase}
+h2{font-size:clamp(2rem,5vw,3.2rem)}
+h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--chili);outline-offset:3px;border-radius:6px}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(56px,8vw,96px)}
+.wrap{max-width:var(--wrap);margin:0 auto;display:grid;gap:clamp(28px,4vw,44px)}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.head{display:grid;gap:14px}
+.at{color:var(--hi)}
+
+/* Hero */
+.hero{background:var(--band);color:var(--band-fg);padding-block:clamp(48px,7vw,88px) 0;overflow:hidden}
+.hero .wrap{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:end}
+.hero-copy{display:grid;gap:22px;padding-bottom:clamp(40px,6vw,80px);align-self:center}
+.hero h1{font-size:clamp(3.4rem,11vw,7.5rem)}
+.tagline{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,2.4vw,1.5rem);letter-spacing:-.02em;text-transform:lowercase}
+.hero .lead{color:var(--band-muted)}
+.hero .eyebrow{color:var(--hi)}
+.jump{display:flex;flex-wrap:wrap;gap:10px}
+.jump a{text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 18px;border-radius:999px;border:1.5px solid rgba(246,244,251,.28)}
+.jump a:first-child{background:var(--hi);color:#16141F;border-color:var(--hi)}
+.jump a:hover{border-color:var(--hi)}
+.hero-phone{justify-self:center;width:min(300px,100%);margin-bottom:-6px}
+.hero-phone .phone{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:0}
+
+.phone{border:7px solid var(--frame);border-radius:34px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.phone img{display:block;width:100%;height:auto}
+
+/* Steps: a real sequence, so numbered */
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;gap:8px;padding:22px;border-radius:20px;background:var(--surface)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--accent);line-height:1}
+.steps p{color:var(--muted);font-size:.95rem}
+
+/* Guest screens strip */
+.strip{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;margin-inline:-4px}
+.strip figure{flex:0 0 200px;scroll-snap-align:start;display:grid;gap:12px;align-content:start}
+.strip .phone{border-width:6px;border-radius:28px;aspect-ratio:390/844}
+.live-note{font-size:.9rem;color:var(--muted)}
+.live-note b{color:var(--fg);font-weight:600}
+.strip .phone img{height:100%;object-fit:cover;object-position:top}
+figcaption{font-size:.88rem;color:var(--muted);line-height:1.45}
+figcaption b{display:block;color:var(--fg);font-size:.95rem}
+
+/* Feature cards */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
+.surface .card{border-color:transparent}
+.card ul,.row ul{list-style:none;padding:0;display:grid;gap:9px}
+.card li,.row li{position:relative;padding-left:20px;font-size:.95rem;line-height:1.5}
+.card li::before,.row li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+li b{font-weight:600}
+.tag{justify-self:start;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+
+.surface{background:var(--surface)}
+
+/* Owner screenshot rows */
+.rows{display:grid;gap:clamp(40px,6vw,72px)}
+.row{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(24px,4vw,48px);align-items:center}
+.row:nth-child(even) .shot{order:-1}
+.row-copy{display:grid;gap:14px;min-width:0}
+.row-copy h3{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.03em;text-transform:lowercase;line-height:1.08}
+.row-copy p{color:var(--muted)}
+.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#F2F2F7;min-width:0}
+.shot img{display:block;width:100%;height:auto}
+.shot img + img{border-top:1px solid #E5E5EA}
+
+.feature-live{grid-column:span 2;background:var(--band);color:var(--band-fg);border-color:transparent}
+.feature-live .tag{background:var(--hi);color:#16141F}
+.feature-live li::before{background:var(--hi)}
+.feature-live p{color:var(--band-muted)}
+
+/* Cashier */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.not-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.not-list li{font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px dashed var(--line);color:var(--muted)}
+
+/* Roadmap */
+.road{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;list-style:none;padding:0}
+.road li{border-top:3px solid var(--mango);padding-top:14px;display:grid;gap:4px}
+.road li span{font-size:.88rem;color:var(--muted);line-height:1.45}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{grid-template-columns:1fr auto;align-items:center;gap:16px}
+footer .display{font-size:1.6rem}
+footer p{color:var(--muted);font-size:.9rem}
+
+@media (max-width:900px){
+  .hero .wrap,.row,.split{grid-template-columns:minmax(0,1fr)}
+  .row:nth-child(even) .shot{order:0}
+  .hero-phone{width:min(260px,80%)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .road{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .steps,.grid,.road{grid-template-columns:minmax(0,1fr)}
+  .feature-live{grid-column:auto}
+  .strip figure{flex-basis:170px}
+  footer .wrap{grid-template-columns:1fr}
+}
+.mail{justify-self:start;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,4vw,1.9rem);letter-spacing:-.02em;text-decoration:none;padding:16px 28px;border-radius:999px;background:var(--band);color:var(--hi);overflow-wrap:anywhere}
+.mail:hover{background:var(--accent);color:#fff}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+
+<header class="band hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Feature tour · live at Tap@G's</p>
+      <h1>tap<span class="at">@</span></h1>
+      <p class="tagline">order <span class="at">@</span> your table</p>
+      <p class="lead">Every table gets a small NFC tag. Guests tap it with their phone and your restaurant's page opens in the browser: menu, ordering, rewards, feedback and a game. Nothing to download. You see every order live on your dashboard.</p>
+      <nav class="jump" aria-label="Sections">
+        <a href="#guests">For your guests</a>
+        <a href="#owners">For you</a>
+        <a href="#cashiers">For your cashiers</a>
+        <a href="#contact">Contact us</a>
+      </nav>
+    </div>
+    <div class="hero-phone">
+      <div class="phone"><img src="/img/live/guest-home.png" width="780" height="1688" alt="The guest's first screen at G's, table 01: the Tap@ and G's logos, a stamp card towards a free Classic Burger and a list of actions"></div>
+    </div>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2 id="how">one tap, no app</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Tap the tag</h3><p>The guest holds their phone to the tag on the table, or scans its QR code.</p></li>
+      <li><h3>Their table opens</h3><p>Your branding, your menu and their table number. They never pick a restaurant, branch or table.</p></li>
+      <li><h3>Order, earn, review</h3><p>They order from their seat, collect points and stamps, and leave feedback.</p></li>
+      <li><h3>You see it live</h3><p>The order lands on your dashboard with a sound alert, ready for the kitchen.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band surface" id="guests" aria-labelledby="guests-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">For your guests</p>
+      <h2 id="guests-h">the customer screen</h2>
+      <p class="lead">Works on iPhone and Android, in light and dark mode, with your logo, banner, menu, links and rewards.</p>
+      <p class="live-note">Every screen below is from <b>Tap@G's</b>, running now at tapat.co across its three branches: G's, G's Wellness Club and Garhy's.</p>
+    </div>
+
+    <div class="strip" tabindex="0" aria-label="Customer screens, scroll sideways">
+      <figure><div class="phone"><img src="/img/live/guest-order-wellness.png" width="780" height="1688" alt="Order now at G's Wellness Club: burgers and chicken meals with calories, protein, carbs and fat, prices in EGP and an add button for each"></div><figcaption><b>Order now</b>G's Wellness Club's menu, with nutrition on every dish.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-order-items.png" width="780" height="1688" alt="Order now at G's with a pasta and a latte added and a View cart bar showing 2 items, EGP 400 and 400 points"></div><figcaption><b>Add to cart</b>Quantities right in the menu, with points shown before ordering.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-cart.png" width="780" height="1688" alt="Cart with two items, subtotal EGP 400, VAT EGP 56, total EGP 456 and 400 points to earn"></div><figcaption><b>Cart</b>VAT, the total and the points they'll earn, then Place order.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-rewards.png" width="780" height="1688" alt="Rewards screen with a points balance, a 6-stamp card and rewards to redeem, from a free cookie to 20% off"></div><figcaption><b>Rewards</b>Points and a stamp card, swapped for rewards you choose.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-feedback.png" width="780" height="1688" alt="Feedback screen with five stars to tap and a comment box"></div><figcaption><b>Feedback</b>A star rating and a comment, sent to you anonymously.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-sign-up.png" width="780" height="1688" alt="Sign up form with name, email, optional phone, birthday and gender"></div><figcaption><b>Sign up</b>Name, birthday and gender, with consent to Terms and Privacy.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-game.png" width="780" height="1688" alt="The BlockBomb puzzle game with a score and a block grid"></div><figcaption><b>BlockBomb</b>A puzzle game for while the food is on its way.</figcaption></figure>
+      <figure><div class="phone"><img src="/img/live/guest-garhys.png" width="780" height="1688" alt="Garhy's home screen, table 01, with the same stamp card and actions"></div><figcaption><b>Every branch</b>Garhy's gets its own table links and menu.</figcaption></figure>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Menu and ordering</span>
+        <ul>
+          <li><b>Full PDF menu</b> one tap away</li>
+          <li><b>Searchable menu</b> with calories, protein, carbs and fat for each dish</li>
+          <li><b>Cart</b> with quantities, VAT and the total</li>
+          <li><b>Order from the seat:</b> the table is filled in and the order reaches you instantly</li>
+          <li><b>Daily order numbers</b> such as #00007</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Pay after eating</span>
+        <ul>
+          <li><b>Live order status:</b> "Still being prepared" until it's served</li>
+          <li><b>Ask for the bill</b> with Card or Cash, and your staff are alerted</li>
+          <li><b>Personal promo codes</b> from your WhatsApp offers</li>
+          <li><b>14% VAT</b> calculated and shown clearly</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Loyalty</span>
+        <ul>
+          <li><b>Points</b> on every order</li>
+          <li><b>Rewards:</b> free items or a % off the next order</li>
+          <li><b>Stamp card:</b> a full card puts the free item in the cart automatically</li>
+          <li><b>Personal QR code</b> for staff to scan</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Engagement</span>
+        <ul>
+          <li><b>Anonymous feedback</b> with 1 to 5 stars and a comment</li>
+          <li><b>Google review</b> in one tap</li>
+          <li><b>Social links:</b> Instagram, Facebook and TikTok</li>
+          <li><b>BlockBomb,</b> a puzzle game for while the food is on its way</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Account</span>
+        <ul>
+          <li><b>Sign up and log in</b> with email or phone, or Google on the website</li>
+          <li><b>Profile</b> with birthday, gender and phone</li>
+          <li><b>Forgot password</b> by email</li>
+          <li><b>WhatsApp offers:</b> opt in, and opt out at any time</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Privacy by consent</span>
+        <ul>
+          <li>You see a <b>short name</b> like "Sara M.", age and gender only if the guest allows it</li>
+          <li>Their <b>email is never shared</b> with you</li>
+          <li><b>Terms and Privacy Policy</b> accepted at sign-up</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="owners" aria-labelledby="owners-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">For you, the owner</p>
+      <h2 id="owners-h">the admin dashboard</h2>
+      <p class="lead">A private login for the owner. Manage one branch or several, and several restaurants, from the same account.</p>
+    </div>
+
+    <div class="rows">
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Overview</span>
+          <h3>your numbers at a glance</h3>
+          <ul>
+            <li><b>Revenue</b> with and without VAT, <b>orders</b> and <b>customers</b></li>
+            <li><b>Filter</b> by branch and by today, this week, this month or your own dates</li>
+            <li><b>Revenue chart,</b> top 5 best sellers and recent orders</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-dashboard.png" width="800" height="851" alt="Tap@G's dashboard for this month: EGP 32,410 revenue, 67 orders, 6 customers and a revenue chart, with buttons to every other screen"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Insights</span>
+          <h3>know what sells, and when</h3>
+          <ul>
+            <li><b>This period against the last one</b></li>
+            <li><b>Busiest hours and days</b></li>
+            <li><b>Cash against card</b> and a <b>branch comparison</b></li>
+            <li><b>Revenue by category,</b> best and slowest sellers, top tables</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-insights.png" width="800" height="851" alt="Insights for this month: how customers pay, revenue for each of the three branches, and revenue by category"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Menu control</span>
+          <h3>sold out in one tap</h3>
+          <ul>
+            <li><b>Sold out per branch,</b> live for guests at once</li>
+            <li><b>Edit</b> names, prices, categories, descriptions and nutrition</li>
+            <li><b>Add, hide or delete</b> dishes</li>
+            <li><b>Choose the stamp card's</b> size and free item</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-menu.png" width="800" height="851" alt="Menu screen with the 6-stamp card set to a free Classic Burger and an Available switch for each dish at G's Wellness Club"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Feedback</span>
+          <h3>hear it first</h3>
+          <ul>
+            <li><b>Average rating</b> and the star breakdown</li>
+            <li><b>Low-rating alerts</b> that need a look</li>
+            <li><b>Every comment</b> with its branch, table and time</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-feedback.png" width="800" height="851" alt="Feedback screen with a 5.0 average, the star breakdown and a five-star comment from G's table 2"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Customers and marketing</span>
+          <h3>bring them back</h3>
+          <ul>
+            <li><b>Members,</b> gender split and age groups</li>
+            <li><b>Customer list</b> with orders and spend for each person</li>
+            <li><b>WhatsApp offers:</b> a suggested discount on their favourite dish with a one-time personal promo code</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-whatsapp-offer.png" width="800" height="851" alt="Send an offer sheet: the customer's most ordered dishes, a 15% discount, a personal promo code and the WhatsApp message ready to send"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Inventory</span>
+          <h3>stock that counts itself</h3>
+          <ul>
+            <li><b>Stock per branch</b> with restock, stock-take and low-stock warnings</li>
+            <li><b>Recipes:</b> how much of each ingredient one dish uses</li>
+            <li><b>Stock goes down by itself</b> as orders are prepared</li>
+            <li><b>Dishes sell out automatically</b> when an ingredient runs out or expires</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-recipe.png" width="800" height="851" alt="Recipe for Creamy Chicken Pasta: 100 g chicken, 0.03 l milk, 50 g mushrooms, 50 g parmesan, 50 ml cream, 50 g cheddar and 200 g pasta"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Daily sales report</span>
+          <h3>close the day in one print</h3>
+          <ul>
+            <li><b>Payments</b> by cash and card, returns and net payments</li>
+            <li><b>Products mix</b> by category with quantities and amounts</li>
+            <li><b>Print</b> on the 80 mm receipt printer or <b>download as PDF</b></li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-sales-report.png" width="800" height="851" alt="Daily sales report for 20 October: 35 orders, EGP 13,488.20 net payments, and the products mix"></figure>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Invoices</span>
+          <h3>suppliers and buyers, kept apart</h3>
+          <ul>
+            <li><b>Payables</b> to suppliers and <b>receivables</b> from buyers</li>
+            <li>Record payments and see what's <b>outstanding and overdue</b></li>
+            <li><b>Print or download</b> A4 invoices as PDF</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="/img/live/admin-invoices.png" width="800" height="851" alt="Receivables: EGP 302,050 owed to us, nothing overdue, and the list of invoices to buyers"></figure>
+      </article>
+    </div>
+
+    <div class="grid">
+      <article class="card feature-live">
+        <span class="tag">Live orders</span>
+        <h3>The kitchen's screen, in real time</h3>
+        <ul>
+          <li><b>New orders appear instantly</b> with how long each has waited</li>
+          <li><b>One tap moves an order on:</b> New, Preparing, Ready, Served, or Cancel</li>
+          <li><b>Bills:</b> tables asking for the bill with Card or Cash and the total, a Paid button and Print receipt on an 80 mm printer or as a PDF</li>
+          <li><b>Alerts</b> for new orders and bill requests with sound, vibration and browser notifications, on every staff screen</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Order history</span>
+        <ul>
+          <li><b>Every order,</b> as a list or grouped by customer</li>
+          <li><b>Search and filters</b></li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Employees</span>
+        <ul>
+          <li><b>Cashier accounts</b> for each branch</li>
+          <li><b>Deactivate</b> one and they're signed out immediately</li>
+          <li><b>Password reset</b> by email</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Loyalty scanner</span>
+        <ul>
+          <li><b>Scan a guest's QR</b> with the camera to add a stamp</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Several branches</span>
+        <ul>
+          <li><b>One owner login</b> for every branch</li>
+          <li><b>Filter by branch</b> on every screen</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band surface" id="cashiers" aria-labelledby="cashiers-h">
+  <div class="wrap split">
+    <div class="head">
+      <p class="eyebrow">For your cashiers</p>
+      <h2 id="cashiers-h">the counter screen</h2>
+      <p class="lead">A separate login with only what the counter needs, for their own branch.</p>
+      <p class="eyebrow" style="color:var(--muted);margin-top:8px">Cashiers can't see</p>
+      <ul class="not-list">
+        <li>Revenue</li><li>Insights</li><li>Customer data</li><li>Menu editing</li><li>Employees</li><li>Invoices</li>
+      </ul>
+      <figure class="shot" style="margin-top:12px"><img src="/img/live/cashier-home.png" width="800" height="851" alt="Cashier home for G's Wellness Club with New order, Live orders, Scan loyalty QR and Inventory"></figure>
+    </div>
+    <div class="row-copy">
+    <figure class="shot"><img src="/img/live/cashier-till.png" width="800" height="851" alt="New takeaway order at the till: a Classic Burger and a Teriyaki Chicken, EGP 450 total, Cash selected and a Paid · place order button"></figure>
+    <article class="card">
+      <ul>
+        <li><b>New takeaway order,</b> paid at the till, with a printed receipt</li>
+        <li><b>Scan a guest's QR</b> so takeaway orders earn points too</li>
+        <li><b>Live orders</b> and bills for their branch</li>
+        <li><b>Loyalty scanner</b> for stamps</li>
+        <li><b>Inventory,</b> view only</li>
+        <li><b>Today's sales report</b></li>
+      </ul>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="next-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">On the roadmap</p>
+      <h2 id="next-h">coming next</h2>
+      <p class="lead">Today, Card and Cash are the guest's choice and payment happens at the table.</p>
+    </div>
+    <ul class="road">
+      <li><h3>Online card payment</h3><span>Pay from the phone at the table.</span></li>
+      <li><h3>App Store and Google Play</h3><span>Today it runs in the browser, with nothing to install.</span></li>
+      <li><h3>Push notifications</h3><span>Order updates on guests' phones.</span></li>
+      <li><h3>Wi-Fi from the table</h3><span>Connect to your Wi-Fi in one tap.</span></li>
+      <li><h3>Google sign-in in the apps</h3><span>Already live on the website.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band surface" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Get tap@</p>
+      <h2 id="contact-h">bring tap@ to your tables</h2>
+      <p class="lead">Send us your menu and how many tables you have. We'll show you Tap@ set up as your restaurant.</p>
+    </div>
+    <a class="mail" href="mailto:info@tapat.co?subject=Tap%40%20for%20my%20restaurant">info@tapat.co</a>
+  </div>
+</section>
+
+<footer class="band" style="padding-block:36px">
+  <div class="wrap">
+    <a href="/" class="display" style="text-decoration:none" aria-label="Tap@ home">tap<span style="color:var(--accent)">@</span></a>
+    <p><a href="/">tapat.co</a> · order @ your table · <a href="mailto:info@tapat.co">info@tapat.co</a></p>
+  </div>
+</footer>
+</body>
+</html>
