@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tap@ | every feature</title>
-<meta name="description" content="Every Tap@ feature for guests, owners and cashiers, shown with live screens from Tap@G's.">
+<meta name="description" content="Every Tap@ screen for guests, owners and cashiers, shown with tap@, our demo café.">
 <link rel="canonical" href="https://tapat.co/features/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tapat.co/features/">
 <meta property="og:title" content="Tap@ | every feature">
-<meta property="og:description" content="Every Tap@ feature for guests, owners and cashiers, shown with live screens from Tap@G's.">
+<meta property="og:description" content="Every Tap@ screen for guests, owners and cashiers, shown with tap@, our demo café.">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -17,45 +17,45 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Unbounded:wght@700;900&display=swap">
 <style>
-/* Layout: Tap@'s own brand (ink, lime, grape; Unbounded + Sora). Full-width bands, one 1120px column inside each;
-   guests get a strip of phone screens, owners get screenshot rows, then cards for everything else. */
+/* Layout: Tap@'s brand (ink, lime, grape; Unbounded + Sora). Full-width bands with one 1120px column. Every
+   screen sits in a phone or browser frame that scrolls inside, so long screens show in full. */
 :root{
   --bg:#FFFFFF; --surface:#F6F4FB; --card:#FFFFFF; --fg:#16141F; --muted:#5B5769; --line:#E4E0F0;
-  --accent:#6C4CF5; --accent-soft:#EEE9FF; --hi:#D4FF3A; --chili:#FF4B2B; --mango:#FFB627;
+  --accent:#6C4CF5; --accent-soft:#EEE9FF; --hi:#D4FF3A; --chili:#FF4B2B;
   --band:#16141F; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#16141F; --shadow:0 18px 40px -22px rgba(22,20,31,.35);
   --display:'Unbounded','Arial Black',system-ui,sans-serif;
   --body:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --wrap:1120px;
+  --wrap:1120px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#110F18; --surface:#18151F; --card:#1E1A29; --fg:#F3F1FA; --muted:#A9A4BA; --line:#2E2940;
-  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#3A3452;
-  --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
+  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --frame:#3A3452; --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
 }}
 :root[data-theme="dark"]{
   --bg:#110F18; --surface:#18151F; --card:#1E1A29; --fg:#F3F1FA; --muted:#A9A4BA; --line:#2E2940;
-  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --band-fg:#F6F4FB; --band-muted:#B8B3C9; --frame:#3A3452;
-  --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
+  --accent:#A08CFF; --accent-soft:#2A2342; --band:#1D1830; --frame:#3A3452; --shadow:0 18px 40px -22px rgba(0,0,0,.8); color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{margin:0}
-img{max-width:100%}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+img{max-width:100%}
 h1,h2,h3,p,ul,figure{margin:0}
 h1,h2,.display{font-family:var(--display);font-weight:900;letter-spacing:-.04em;line-height:1.02;text-wrap:balance;text-transform:lowercase}
 h2{font-size:clamp(2rem,5vw,3.2rem)}
 h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.3;text-wrap:balance}
 a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--chili);outline-offset:3px;border-radius:6px}
 .band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(56px,8vw,96px)}
 .wrap{max-width:var(--wrap);margin:0 auto;display:grid;gap:clamp(28px,4vw,44px)}
+.surface{background:var(--surface)}
 .eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
 .head{display:grid;gap:14px}
 .at{color:var(--hi)}
+.note{font-size:.9rem;color:var(--muted)}
 
 /* Hero */
 .hero{background:var(--band);color:var(--band-fg);padding-block:clamp(48px,7vw,88px) 0;overflow:hidden}
@@ -71,86 +71,67 @@ a{color:inherit}
 .jump a:hover{border-color:var(--hi)}
 .hero-phone{justify-self:center;width:min(300px,100%);margin-bottom:-6px}
 .hero-phone .phone{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:0}
+.hero-phone .phone .view{aspect-ratio:390/700}
 
+/* Frames: phones and browser windows that scroll inside */
 .phone{border:7px solid var(--frame);border-radius:34px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-.phone img{display:block;width:100%;height:auto}
+.phone .view{aspect-ratio:390/844;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.phone img,.browser img{display:block;width:100%;height:auto}
+.browser{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#F2F2F7;box-shadow:var(--shadow);min-width:0}
+.browser .bar{display:flex;align-items:center;gap:6px;height:30px;padding-inline:12px;background:var(--card);border-bottom:1px solid var(--line)}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.browser .bar span{margin-left:10px;font-size:.75rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser .view{max-height:min(70vh,640px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
 
-/* Steps: a real sequence, so numbered */
+/* Steps: a real sequence */
 .steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
 .steps li{counter-increment:s;display:grid;gap:8px;padding:22px;border-radius:20px;background:var(--surface)}
 .steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--accent);line-height:1}
 .steps p{color:var(--muted);font-size:.95rem}
 
-/* Guest screens strip */
+/* Guest groups */
+.group{display:grid;gap:18px}
+.group-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px 32px;align-items:start}
+.group-head h3{font-family:var(--display);font-weight:900;font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:-.03em;text-transform:lowercase;line-height:1.1}
 .strip{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 18px;scroll-snap-type:x mandatory;margin-inline:-4px}
-.strip figure{flex:0 0 200px;scroll-snap-align:start;display:grid;gap:12px;align-content:start}
-.strip .phone{border-width:6px;border-radius:28px;aspect-ratio:390/844}
-.live-note{font-size:.9rem;color:var(--muted)}
-.live-note b{color:var(--fg);font-weight:600}
-.strip .phone img{height:100%;object-fit:cover;object-position:top}
+.strip figure{flex:0 0 230px;scroll-snap-align:start;display:grid;gap:12px;align-content:start}
 figcaption{font-size:.88rem;color:var(--muted);line-height:1.45}
 figcaption b{display:block;color:var(--fg);font-size:.95rem}
 
-/* Feature cards */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
-.surface .card{border-color:transparent}
-.card ul,.row ul{list-style:none;padding:0;display:grid;gap:9px}
-.card li,.row li{position:relative;padding-left:20px;font-size:.95rem;line-height:1.5}
-.card li::before,.row li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+ul.ticks{list-style:none;padding:0;display:grid;gap:9px}
+ul.ticks li{position:relative;padding-left:20px;font-size:.95rem;line-height:1.5}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 li b{font-weight:600}
 .tag{justify-self:start;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
 
-.surface{background:var(--surface)}
-
-/* Owner screenshot rows */
-.rows{display:grid;gap:clamp(40px,6vw,72px)}
-.row{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(24px,4vw,48px);align-items:center}
-.row:nth-child(even) .shot{order:-1}
-.row-copy{display:grid;gap:14px;min-width:0}
+/* Owner and cashier rows */
+.rows{display:grid;gap:clamp(48px,7vw,80px)}
+.row{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.5fr);gap:clamp(24px,4vw,48px);align-items:start}
+.row-copy{display:grid;gap:14px;min-width:0;position:sticky;top:24px}
 .row-copy h3{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.03em;text-transform:lowercase;line-height:1.08}
-.row-copy p{color:var(--muted)}
-.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#F2F2F7;min-width:0}
-.shot img{display:block;width:100%;height:auto}
-.shot img + img{border-top:1px solid #E5E5EA}
+.shots{display:grid;gap:12px;min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{border:0;border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:600;background:var(--accent-soft);color:var(--accent)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
 
-.feature-live{grid-column:span 2;background:var(--band);color:var(--band-fg);border-color:transparent}
-.feature-live .tag{background:var(--hi);color:#16141F}
-.feature-live li::before{background:var(--hi)}
-.feature-live p{color:var(--band-muted)}
-
-/* Cashier */
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
-.not-list{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.not-list li{font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px dashed var(--line);color:var(--muted)}
-
-/* Roadmap */
-.road{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;list-style:none;padding:0}
-.road li{border-top:3px solid var(--mango);padding-top:14px;display:grid;gap:4px}
-.road li span{font-size:.88rem;color:var(--muted);line-height:1.45}
-
+.mail{justify-self:start;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,4vw,1.9rem);letter-spacing:-.02em;text-decoration:none;padding:16px 28px;border-radius:999px;background:var(--band);color:var(--hi);overflow-wrap:anywhere}
+.mail:hover{background:var(--accent);color:#fff}
 footer{border-top:1px solid var(--line)}
 footer .wrap{grid-template-columns:1fr auto;align-items:center;gap:16px}
-footer .display{font-size:1.6rem}
+footer .display{font-size:1.6rem;text-decoration:none}
 footer p{color:var(--muted);font-size:.9rem}
 
 @media (max-width:900px){
-  .hero .wrap,.row,.split{grid-template-columns:minmax(0,1fr)}
-  .row:nth-child(even) .shot{order:0}
+  .hero .wrap,.row,.group-head{grid-template-columns:minmax(0,1fr)}
+  .row-copy{position:static}
   .hero-phone{width:min(260px,80%)}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .road{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:560px){
-  .steps,.grid,.road{grid-template-columns:minmax(0,1fr)}
-  .feature-live{grid-column:auto}
-  .strip figure{flex-basis:170px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .strip figure{flex-basis:200px}
   footer .wrap{grid-template-columns:1fr}
 }
-.mail{justify-self:start;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,4vw,1.9rem);letter-spacing:-.02em;text-decoration:none;padding:16px 28px;border-radius:999px;background:var(--band);color:var(--hi);overflow-wrap:anywhere}
-.mail:hover{background:var(--accent);color:#fff}
-footer a{color:inherit}
 </style>
 </head>
 <body>
@@ -170,7 +151,7 @@ footer a{color:inherit}
       </nav>
     </div>
     <div class="hero-phone">
-      <div class="phone"><img src="/img/live/guest-home.png" width="780" height="1688" alt="The guest's first screen at G's, table 01: the Tap@ and G's logos, a stamp card towards a free Classic Burger and a list of actions"></div>
+      <div class="phone"><div class="view" tabindex="0" aria-label="Guest home screen, scrollable"><img src="/img/demo/guest-home.png" width="780" height="1918" alt="The guest's first screen at tap@ Alexandria, table 05: the tap@ banner, a stamp card towards a free Cappuccino and a list of actions"></div></div>
     </div>
   </div>
 </header>
@@ -196,75 +177,91 @@ footer a{color:inherit}
       <p class="eyebrow">For your guests</p>
       <h2 id="guests-h">the customer screen</h2>
       <p class="lead">Works on iPhone and Android, in light and dark mode, with your logo, banner, menu, links and rewards.</p>
-      <p class="live-note">Every screen below is from <b>Tap@G's</b>, running now at tapat.co across its three branches: G's, G's Wellness Club and Garhy's.</p>
+      <p class="note">Every screen on this page is from <b>tap@</b>, our demo café with two branches, Alexandria and Cairo. Scroll inside a screen to see all of it.</p>
     </div>
 
-    <div class="strip" tabindex="0" aria-label="Customer screens, scroll sideways">
-      <figure><div class="phone"><img src="/img/live/guest-order-wellness.png" width="780" height="1688" alt="Order now at G's Wellness Club: burgers and chicken meals with calories, protein, carbs and fat, prices in EGP and an add button for each"></div><figcaption><b>Order now</b>G's Wellness Club's menu, with nutrition on every dish.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-order-items.png" width="780" height="1688" alt="Order now at G's with a pasta and a latte added and a View cart bar showing 2 items, EGP 400 and 400 points"></div><figcaption><b>Add to cart</b>Quantities right in the menu, with points shown before ordering.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-cart.png" width="780" height="1688" alt="Cart with two items, subtotal EGP 400, VAT EGP 56, total EGP 456 and 400 points to earn"></div><figcaption><b>Cart</b>VAT, the total and the points they'll earn, then Place order.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-rewards.png" width="780" height="1688" alt="Rewards screen with a points balance, a 6-stamp card and rewards to redeem, from a free cookie to 20% off"></div><figcaption><b>Rewards</b>Points and a stamp card, swapped for rewards you choose.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-feedback.png" width="780" height="1688" alt="Feedback screen with five stars to tap and a comment box"></div><figcaption><b>Feedback</b>A star rating and a comment, sent to you anonymously.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-sign-up.png" width="780" height="1688" alt="Sign up form with name, email, optional phone, birthday and gender"></div><figcaption><b>Sign up</b>Name, birthday and gender, with consent to Terms and Privacy.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-game.png" width="780" height="1688" alt="The BlockBomb puzzle game with a score and a block grid"></div><figcaption><b>BlockBomb</b>A puzzle game for while the food is on its way.</figcaption></figure>
-      <figure><div class="phone"><img src="/img/live/guest-garhys.png" width="780" height="1688" alt="Garhy's home screen, table 01, with the same stamp card and actions"></div><figcaption><b>Every branch</b>Garhy's gets its own table links and menu.</figcaption></figure>
+    <div class="group">
+      <div class="group-head">
+        <h3>arrive and browse</h3>
+        <ul class="ticks">
+          <li><b>Tap to open:</b> the table is already known, no app or sign-up needed</li>
+          <li><b>Your full PDF menu</b> and a searchable menu to order from</li>
+        </ul>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Arrive and browse screens, scroll sideways">
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-home.png" width="780" height="1918" alt="Home screen at table 05 with the stamp card and every action"></div></div><figcaption><b>Home</b>Their table, a stamp card and everything they can do.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-view-menu-pdf.png" width="1202" height="1700" alt="The café's PDF menu: all-day breakfast with prices"></div></div><figcaption><b>View Menu</b>Your PDF menu, exactly as you designed it.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-order-menu.png" width="780" height="4800" alt="Order now: the full menu by category with prices and an add button for each item"></div></div><figcaption><b>Order now</b>The whole menu by category, with search.</figcaption></figure>
+      </div>
     </div>
 
-    <div class="grid">
-      <article class="card">
-        <span class="tag">Menu and ordering</span>
-        <ul>
-          <li><b>Full PDF menu</b> one tap away</li>
-          <li><b>Searchable menu</b> with calories, protein, carbs and fat for each dish</li>
-          <li><b>Cart</b> with quantities, VAT and the total</li>
-          <li><b>Order from the seat:</b> the table is filled in and the order reaches you instantly</li>
-          <li><b>Daily order numbers</b> such as #00007</li>
+    <div class="group">
+      <div class="group-head">
+        <h3>order, then pay after eating</h3>
+        <ul class="ticks">
+          <li><b>Cart</b> with VAT, the total and the points they'll earn</li>
+          <li><b>Order from the seat:</b> it reaches the kitchen instantly</li>
+          <li><b>Ask for the bill</b> with Card or Cash, plus personal promo codes</li>
         </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Pay after eating</span>
-        <ul>
-          <li><b>Live order status:</b> "Still being prepared" until it's served</li>
-          <li><b>Ask for the bill</b> with Card or Cash, and your staff are alerted</li>
-          <li><b>Personal promo codes</b> from your WhatsApp offers</li>
-          <li><b>14% VAT</b> calculated and shown clearly</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Loyalty</span>
-        <ul>
-          <li><b>Points</b> on every order</li>
-          <li><b>Rewards:</b> free items or a % off the next order</li>
-          <li><b>Stamp card:</b> a full card puts the free item in the cart automatically</li>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Ordering and paying screens, scroll sideways">
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-order-added.png" width="780" height="1688" alt="Order now with items added and a View cart bar showing items, total and points"></div></div><figcaption><b>Add to cart</b>Quantities right in the menu.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-cart-signed-in.png" width="780" height="1688" alt="Cart with an Egg Avocado Brioche and a Cappuccino, VAT, total and points to earn"></div></div><figcaption><b>Cart</b>VAT, the total and points, then Place order.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-order-placed.png" width="780" height="1688" alt="Order placed: the staff are preparing it, points earned and the new balance"></div></div><figcaption><b>Order placed</b>Confirmed, with the points they earned.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-checkout.png" width="780" height="1744" alt="Checkout: Card selected, the order lines, a promo code taking 15% off the cappuccino, VAT and Ask for the bill"></div></div><figcaption><b>Checkout</b>Card or Cash, promo code, VAT.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-bill-requested.png" width="780" height="1688" alt="Bill requested: EGP 452.58 by card, the promo saving, and staff on their way with the card machine"></div></div><figcaption><b>Bill requested</b>Staff are alerted and come to the table.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head">
+        <h3>points, stamps and rewards</h3>
+        <ul class="ticks">
+          <li><b>Points</b> on every order, <b>rewards</b> from a free cookie to 20% off</li>
+          <li><b>Stamp card:</b> a full card puts the free item in the cart</li>
           <li><b>Personal QR code</b> for staff to scan</li>
         </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Engagement</span>
-        <ul>
-          <li><b>Anonymous feedback</b> with 1 to 5 stars and a comment</li>
-          <li><b>Google review</b> in one tap</li>
-          <li><b>Social links:</b> Instagram, Facebook and TikTok</li>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Loyalty screens, scroll sideways">
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-home-signed-in.png" width="780" height="1918" alt="Signed-in home screen with the points balance and 5 of 8 stamps"></div></div><figcaption><b>Signed in</b>Points on top, stamps on the card.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-loyalty-qr.png" width="780" height="1688" alt="The guest's personal loyalty QR code"></div></div><figcaption><b>Loyalty QR</b>Staff scan it to add a stamp.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-rewards.png" width="780" height="1688" alt="Rewards: the points balance, the stamp card and rewards to redeem"></div></div><figcaption><b>Rewards</b>Redeem points for rewards you choose.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head">
+        <h3>feedback and fun</h3>
+        <ul class="ticks">
+          <li><b>Anonymous feedback</b> with stars and a comment, straight to you</li>
+          <li><b>Google review, Instagram, Facebook and TikTok</b> in one tap</li>
           <li><b>BlockBomb,</b> a puzzle game for while the food is on its way</li>
         </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Account</span>
-        <ul>
-          <li><b>Sign up and log in</b> with email or phone, or Google on the website</li>
-          <li><b>Profile</b> with birthday, gender and phone</li>
-          <li><b>Forgot password</b> by email</li>
-          <li><b>WhatsApp offers:</b> opt in, and opt out at any time</li>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Feedback and game screens, scroll sideways">
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-feedback.png" width="780" height="1688" alt="Feedback: five stars selected and a comment about the pistachio pancakes"></div></div><figcaption><b>Feedback</b>Stars and a comment, anonymous.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-blockbomb.png" width="780" height="1688" alt="The BlockBomb puzzle game"></div></div><figcaption><b>BlockBomb</b>A game to play at the table.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head">
+        <h3>accounts and privacy</h3>
+        <ul class="ticks">
+          <li><b>Sign up and log in</b> with email or phone, or Google on the web</li>
+          <li><b>Privacy by consent:</b> you see a short name, age and gender only if they allow it, never their email</li>
+          <li><b>WhatsApp offers</b> only for guests who opt in</li>
         </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Privacy by consent</span>
-        <ul>
-          <li>You see a <b>short name</b> like "Sara M.", age and gender only if the guest allows it</li>
-          <li>Their <b>email is never shared</b> with you</li>
-          <li><b>Terms and Privacy Policy</b> accepted at sign-up</li>
-        </ul>
-      </article>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Account screens, scroll sideways">
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-sign-up.png" width="780" height="2370" alt="Sign up form with name, email, optional phone, birthday, gender and consent"></div></div><figcaption><b>Sign up</b>With consent to Terms and Privacy.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-log-in.png" width="780" height="1688" alt="Log in with email or phone and password, or Continue with Google"></div></div><figcaption><b>Log in</b>Email or phone, or Google.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-forgot-password.png" width="780" height="1688" alt="Forgot password: send a reset link by email"></div></div><figcaption><b>Forgot password</b>A reset link by email.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-profile.png" width="780" height="1888" alt="Profile with email, phone, birthday, gender, the WhatsApp offers switch and the consent switches"></div></div><figcaption><b>Profile</b>Their details and sharing switches.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-edit-profile.png" width="780" height="1688" alt="Edit details: name, phone, birthday, gender and the show-my-name switch"></div></div><figcaption><b>Edit details</b>Change details at any time.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-terms.png" width="780" height="3298" alt="Terms and Conditions"></div></div><figcaption><b>Terms</b>Clear, plain-language terms.</figcaption></figure>
+        <figure><div class="phone"><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/guest-privacy.png" width="780" height="3022" alt="Privacy Policy"></div></div><figcaption><b>Privacy</b>What's collected and who sees it.</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -274,7 +271,7 @@ footer a{color:inherit}
     <div class="head">
       <p class="eyebrow">For you, the owner</p>
       <h2 id="owners-h">the admin dashboard</h2>
-      <p class="lead">A private login for the owner. Manage one branch or several, and several restaurants, from the same account.</p>
+      <p class="lead">A private login for the owner, with every branch in one place. Filter by branch and by today, this week, this month or your own dates.</p>
     </div>
 
     <div class="rows">
@@ -282,199 +279,222 @@ footer a{color:inherit}
         <div class="row-copy">
           <span class="tag">Overview</span>
           <h3>your numbers at a glance</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Revenue</b> with and without VAT, <b>orders</b> and <b>customers</b></li>
-            <li><b>Filter</b> by branch and by today, this week, this month or your own dates</li>
             <li><b>Revenue chart,</b> top 5 best sellers and recent orders</li>
+            <li><b>One tap</b> to every other screen, with live counts</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-dashboard.png" width="800" height="851" alt="Tap@G's dashboard for this month: EGP 32,410 revenue, 67 orders, 6 customers and a revenue chart, with buttons to every other screen"></figure>
+        <div class="shots" data-tabs>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/dashboard</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-dashboard.png" width="1600" height="2303" alt="Dashboard for this month: revenue, orders, customers, a daily revenue chart, best sellers and recent orders"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
-          <span class="tag">Insights</span>
-          <h3>know what sells, and when</h3>
-          <ul>
-            <li><b>This period against the last one</b></li>
-            <li><b>Busiest hours and days</b></li>
-            <li><b>Cash against card</b> and a <b>branch comparison</b></li>
-            <li><b>Revenue by category,</b> best and slowest sellers, top tables</li>
+          <span class="tag">Live orders</span>
+          <h3>the kitchen's screen, in real time</h3>
+          <ul class="ticks">
+            <li><b>New orders appear instantly</b> with how long each has waited</li>
+            <li><b>One tap moves an order on:</b> New, Preparing, Ready, Served</li>
+            <li><b>Bills:</b> tables asking to pay, with Card or Cash, promo, a Paid button and Print receipt</li>
+            <li><b>Alerts</b> with sound and notifications on every staff screen</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-insights.png" width="800" height="851" alt="Insights for this month: how customers pay, revenue for each of the three branches, and revenue by category"></figure>
+        <div class="shots">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/orders</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-live-orders.png" width="1600" height="3805" alt="Live orders: four bills waiting with card or cash and promo codes, then orders being prepared, ready and new, each with its next step"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Menu control</span>
           <h3>sold out in one tap</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Sold out per branch,</b> live for guests at once</li>
             <li><b>Edit</b> names, prices, categories, descriptions and nutrition</li>
-            <li><b>Add, hide or delete</b> dishes</li>
-            <li><b>Choose the stamp card's</b> size and free item</li>
+            <li><b>Add, hide or delete</b> dishes, and set the stamp card</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-menu.png" width="800" height="851" alt="Menu screen with the 6-stamp card set to a free Classic Burger and an Available switch for each dish at G's Wellness Club"></figure>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Menu screens"></div>
+          <div class="browser" data-label="Menu"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/menu</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-menu.png" width="1600" height="3000" alt="Menu: the stamp card setting, branch chips and a Sold out switch for every item"></div></div>
+          <div class="browser" data-label="Edit an item" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/menu</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-menu-item-editor.png" width="1600" height="1107" alt="Editing Pistachio Pancakes: name, price, category, description, nutrition and Show on the menu"></div></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Insights</span>
+          <h3>know what sells, and when</h3>
+          <ul class="ticks">
+            <li><b>This period against the last one</b></li>
+            <li><b>Busiest hours and days,</b> cash against card</li>
+            <li><b>Branches,</b> revenue by category, top tables and slow sellers</li>
+          </ul>
+        </div>
+        <div class="shots">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/insights</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-insights.png" width="1600" height="2947" alt="Insights for this month: comparison with last month, busiest hours and days, payment split, branches, categories, top tables and slow sellers"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Feedback</span>
           <h3>hear it first</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Average rating</b> and the star breakdown</li>
-            <li><b>Low-rating alerts</b> that need a look</li>
+            <li><b>Low ratings</b> filtered in one tap</li>
             <li><b>Every comment</b> with its branch, table and time</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-feedback.png" width="800" height="851" alt="Feedback screen with a 5.0 average, the star breakdown and a five-star comment from G's table 2"></figure>
+        <div class="shots">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/feedback</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-feedback.png" width="1600" height="3750" alt="Feedback: average rating, star breakdown and every comment with branch and table"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Customers and marketing</span>
           <h3>bring them back</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Members,</b> gender split and age groups</li>
             <li><b>Customer list</b> with orders and spend for each person</li>
-            <li><b>WhatsApp offers:</b> a suggested discount on their favourite dish with a one-time personal promo code</li>
+            <li><b>WhatsApp offers:</b> a discount on their favourite dish with a one-time promo code</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-whatsapp-offer.png" width="800" height="851" alt="Send an offer sheet: the customer's most ordered dishes, a 15% discount, a personal promo code and the WhatsApp message ready to send"></figure>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Customer screens"></div>
+          <div class="browser" data-label="Customers"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/customers</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-customers.png" width="1600" height="1940" alt="Customers: members, gender and age, and the list with spend and a WhatsApp offer button"></div></div>
+          <div class="browser" data-label="WhatsApp offer" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/customers</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-whatsapp-offer.png" width="1600" height="1000" alt="Send an offer: the customer's favourite dishes, a discount, a personal promo code and the message ready for WhatsApp"></div></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Order history</span>
+          <h3>every order, searchable</h3>
+          <ul class="ticks">
+            <li><b>Every order</b> with its items, table, payment and promo</li>
+            <li><b>Group by customer</b> to see who orders what</li>
+            <li><b>Search</b> for a customer or a dish</li>
+          </ul>
+        </div>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Order history screens"></div>
+          <div class="browser" data-label="Orders"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/history</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-order-history.png" width="1600" height="3000" alt="Order history: orders with their items, VAT, payment and status"></div></div>
+          <div class="browser" data-label="By customer" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/history</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-order-history-by-customer.png" width="1600" height="1822" alt="Order history grouped by customer with order counts and spend"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Inventory</span>
           <h3>stock that counts itself</h3>
-          <ul>
-            <li><b>Stock per branch</b> with restock, stock-take and low-stock warnings</li>
-            <li><b>Recipes:</b> how much of each ingredient one dish uses</li>
+          <ul class="ticks">
+            <li><b>Stock per branch</b> with low-stock and expiry warnings</li>
+            <li><b>Recipes:</b> what one of each dish uses</li>
             <li><b>Stock goes down by itself</b> as orders are prepared</li>
-            <li><b>Dishes sell out automatically</b> when an ingredient runs out or expires</li>
+            <li><b>Dishes sell out automatically</b> when an ingredient runs out</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-recipe.png" width="800" height="851" alt="Recipe for Creamy Chicken Pasta: 100 g chicken, 0.03 l milk, 50 g mushrooms, 50 g parmesan, 50 ml cream, 50 g cheddar and 200 g pasta"></figure>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Inventory screens"></div>
+          <div class="browser" data-label="Stock, Cairo"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/inventory</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-inventory-cairo.png" width="1600" height="1055" alt="Cairo stock: avocado is out and the dishes it's in are sold out, smoked salmon is low and expires soon"></div></div>
+          <div class="browser" data-label="Stock, Alexandria" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/inventory</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-inventory-alexandria.png" width="1600" height="1000" alt="Alexandria stock with amounts and expiry dates"></div></div>
+          <div class="browser" data-label="Recipes" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/inventory</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-recipes.png" width="1600" height="1878" alt="Recipes for each menu item"></div></div>
+          <div class="browser" data-label="Edit a recipe" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/inventory</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-recipe-detail.png" width="1600" height="1000" alt="Recipe for Egg Avocado Brioche: 2 eggs, 1 avocado, 1 brioche bun"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Daily sales report</span>
           <h3>close the day in one print</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Payments</b> by cash and card, returns and net payments</li>
             <li><b>Products mix</b> by category with quantities and amounts</li>
             <li><b>Print</b> on the 80 mm receipt printer or <b>download as PDF</b></li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-sales-report.png" width="800" height="851" alt="Daily sales report for 20 October: 35 orders, EGP 13,488.20 net payments, and the products mix"></figure>
+        <div class="shots">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/sales-report</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-daily-sales-report.png" width="1600" height="2666" alt="Today's sales report as a receipt: payments, products mix and sales breakdown"></div></div>
+        </div>
       </article>
 
       <article class="row">
         <div class="row-copy">
           <span class="tag">Invoices</span>
           <h3>suppliers and buyers, kept apart</h3>
-          <ul>
+          <ul class="ticks">
             <li><b>Payables</b> to suppliers and <b>receivables</b> from buyers</li>
             <li>Record payments and see what's <b>outstanding and overdue</b></li>
             <li><b>Print or download</b> A4 invoices as PDF</li>
           </ul>
         </div>
-        <figure class="shot"><img src="/img/live/admin-invoices.png" width="800" height="851" alt="Receivables: EGP 302,050 owed to us, nothing overdue, and the list of invoices to buyers"></figure>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Invoice screens"></div>
+          <div class="browser" data-label="Payables"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/invoices</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-invoices-payables.png" width="1600" height="1476" alt="Payables: what we owe suppliers, overdue, paid this month and the invoice list"></div></div>
+          <div class="browser" data-label="Receivables" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/invoices</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-invoices-receivables.png" width="1600" height="1345" alt="Receivables: what buyers owe us and the invoice list"></div></div>
+          <div class="browser" data-label="An invoice" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/invoice</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-invoice-detail.png" width="1600" height="2231" alt="An invoice partly paid: items, payments, and the A4 print preview"></div></div>
+        </div>
       </article>
-    </div>
 
-    <div class="grid">
-      <article class="card feature-live">
-        <span class="tag">Live orders</span>
-        <h3>The kitchen's screen, in real time</h3>
-        <ul>
-          <li><b>New orders appear instantly</b> with how long each has waited</li>
-          <li><b>One tap moves an order on:</b> New, Preparing, Ready, Served, or Cancel</li>
-          <li><b>Bills:</b> tables asking for the bill with Card or Cash and the total, a Paid button and Print receipt on an 80 mm printer or as a PDF</li>
-          <li><b>Alerts</b> for new orders and bill requests with sound, vibration and browser notifications, on every staff screen</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Order history</span>
-        <ul>
-          <li><b>Every order,</b> as a list or grouped by customer</li>
-          <li><b>Search and filters</b></li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Employees</span>
-        <ul>
-          <li><b>Cashier accounts</b> for each branch</li>
-          <li><b>Deactivate</b> one and they're signed out immediately</li>
-          <li><b>Password reset</b> by email</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Loyalty scanner</span>
-        <ul>
-          <li><b>Scan a guest's QR</b> with the camera to add a stamp</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Several branches</span>
-        <ul>
-          <li><b>One owner login</b> for every branch</li>
-          <li><b>Filter by branch</b> on every screen</li>
-        </ul>
+      <article class="row">
+        <div class="row-copy">
+          <span class="tag">Team and loyalty</span>
+          <h3>your staff, your stamps</h3>
+          <ul class="ticks">
+            <li><b>Employees:</b> cashier accounts per branch, deactivate in one tap</li>
+            <li><b>Loyalty scanner:</b> scan a guest's QR with the camera to add a stamp</li>
+            <li><b>Business login</b> for owners and cashiers</li>
+          </ul>
+        </div>
+        <div class="shots" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Team and loyalty screens"></div>
+          <div class="browser" data-label="Employees"><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/staff</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-employees.png" width="1600" height="1000" alt="Employees: cashiers with their branch, an active switch, Edit and Send password reset"></div></div>
+          <div class="browser" data-label="Loyalty scanner" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin/scan</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/owner-scan-loyalty-qr.png" width="1600" height="1000" alt="Scan loyalty QR: one stamp per purchase, 8 stamps for a free Cappuccino"></div></div>
+          <div class="browser" data-label="Business login" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/admin-login</span></div><div class="view" tabindex="0" style="max-width:390px;margin-inline:auto"><img loading="lazy" src="/img/demo/guest-business-login.png" width="780" height="1688" alt="Business login for owners and cashiers"></div></div>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
 <section class="band surface" id="cashiers" aria-labelledby="cashiers-h">
-  <div class="wrap split">
+  <div class="wrap">
     <div class="head">
       <p class="eyebrow">For your cashiers</p>
       <h2 id="cashiers-h">the counter screen</h2>
-      <p class="lead">A separate login with only what the counter needs, for their own branch.</p>
-      <p class="eyebrow" style="color:var(--muted);margin-top:8px">Cashiers can't see</p>
-      <ul class="not-list">
-        <li>Revenue</li><li>Insights</li><li>Customer data</li><li>Menu editing</li><li>Employees</li><li>Invoices</li>
-      </ul>
-      <figure class="shot" style="margin-top:12px"><img src="/img/live/cashier-home.png" width="800" height="851" alt="Cashier home for G's Wellness Club with New order, Live orders, Scan loyalty QR and Inventory"></figure>
+      <p class="lead">A separate login with only what the counter needs, for their own branch. Cashiers can't see revenue, insights, customer data, menu editing, employees or invoices.</p>
     </div>
-    <div class="row-copy">
-    <figure class="shot"><img src="/img/live/cashier-till.png" width="800" height="851" alt="New takeaway order at the till: a Classic Burger and a Teriyaki Chicken, EGP 450 total, Cash selected and a Paid · place order button"></figure>
-    <article class="card">
-      <ul>
-        <li><b>New takeaway order,</b> paid at the till, with a printed receipt</li>
-        <li><b>Scan a guest's QR</b> so takeaway orders earn points too</li>
-        <li><b>Live orders</b> and bills for their branch</li>
-        <li><b>Loyalty scanner</b> for stamps</li>
-        <li><b>Inventory,</b> view only</li>
-        <li><b>Today's sales report</b></li>
-      </ul>
+    <article class="row">
+      <div class="row-copy">
+        <span class="tag">At the till</span>
+        <h3>takeaway in seconds</h3>
+        <ul class="ticks">
+          <li><b>New takeaway order,</b> paid at the till, with a printed receipt</li>
+          <li><b>Scan a guest's QR</b> so takeaway orders earn points too</li>
+          <li><b>Live orders</b> and bills for their branch</li>
+          <li><b>Inventory</b> (view only) and <b>today's sales report</b></li>
+        </ul>
+      </div>
+      <div class="shots" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Cashier screens"></div>
+        <div class="browser" data-label="Home"><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-cashier-home.png" width="1600" height="1200" alt="Cashier home at Alexandria: New order, Live orders, Scan loyalty QR and Inventory"></div></div>
+        <div class="browser" data-label="New order" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/new-order</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-new-order.png" width="1600" height="1200" alt="New takeaway order: the branch's menu with search"></div></div>
+        <div class="browser" data-label="Ready to pay" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/new-order</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-new-order-ready.png" width="1600" height="1200" alt="The order with two cappuccinos, a croissant and a cookie, Card selected and Paid · place order"></div></div>
+        <div class="browser" data-label="Order placed" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/new-order</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-order-placed.png" width="1600" height="1200" alt="Order placed #00021 with Print receipt"></div></div>
+        <div class="browser" data-label="Live orders" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/orders</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-live-orders.png" width="1600" height="4059" alt="Cashier live orders for Alexandria: bills and the queue"></div></div>
+        <div class="browser" data-label="Loyalty scanner" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/scan</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-scan-loyalty-qr.png" width="1600" height="1200" alt="Scan loyalty QR at the till"></div></div>
+        <div class="browser" data-label="Inventory" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/inventory</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-inventory-view-only.png" width="1600" height="1247" alt="Inventory at Alexandria, view only"></div></div>
+        <div class="browser" data-label="Sales report" hidden><div class="bar"><i></i><i></i><i></i><span>tapat.co/cashier/sales-report</span></div><div class="view" tabindex="0"><img loading="lazy" src="/img/demo/cashier-daily-sales-report.png" width="1600" height="3075" alt="Today's sales report for Alexandria"></div></div>
+      </div>
     </article>
-    </div>
   </div>
 </section>
 
-<section class="band" aria-labelledby="next-h">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">On the roadmap</p>
-      <h2 id="next-h">coming next</h2>
-      <p class="lead">Today, Card and Cash are the guest's choice and payment happens at the table.</p>
-    </div>
-    <ul class="road">
-      <li><h3>Online card payment</h3><span>Pay from the phone at the table.</span></li>
-      <li><h3>App Store and Google Play</h3><span>Today it runs in the browser, with nothing to install.</span></li>
-      <li><h3>Push notifications</h3><span>Order updates on guests' phones.</span></li>
-      <li><h3>Wi-Fi from the table</h3><span>Connect to your Wi-Fi in one tap.</span></li>
-      <li><h3>Google sign-in in the apps</h3><span>Already live on the website.</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="band surface" id="contact" aria-labelledby="contact-h">
+<section class="band" id="contact" aria-labelledby="contact-h">
   <div class="wrap">
     <div class="head">
       <p class="eyebrow">Get tap@</p>
@@ -487,9 +507,30 @@ footer a{color:inherit}
 
 <footer class="band" style="padding-block:36px">
   <div class="wrap">
-    <a href="/" class="display" style="text-decoration:none" aria-label="Tap@ home">tap<span style="color:var(--accent)">@</span></a>
+    <a href="/" class="display" aria-label="Tap@ home">tap<span style="color:var(--accent)">@</span></a>
     <p><a href="/">tapat.co</a> · order @ your table · <a href="mailto:info@tapat.co">info@tapat.co</a></p>
   </div>
 </footer>
+
+<script>
+// Rows with several screens get a tab per screen (labels from data-label).
+document.querySelectorAll('[data-tabs]').forEach(function (box) {
+  var list = box.querySelector('.tabs');
+  var panes = box.querySelectorAll('.browser[data-label]');
+  if (!list || panes.length < 2) return;
+  panes.forEach(function (pane, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('role', 'tab');
+    b.textContent = pane.dataset.label;
+    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    b.addEventListener('click', function () {
+      panes.forEach(function (p, j) { p.hidden = j !== i; });
+      list.querySelectorAll('button').forEach(function (x, j) { x.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+    });
+    list.appendChild(b);
+  });
+});
+</script>
 </body>
 </html>
