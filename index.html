@@ -30,10 +30,19 @@ function fail(message){
   document.querySelector('pre').textContent=errors.slice(0,5).join('\n');
   document.querySelector('button').onclick=function(){location.reload()};
 }
-/* The app draws into #root. If it is still empty after 8 seconds, show why instead of a blank page. */
+/* The app draws into #root. Show why instead of a blank page, but never while its script is still downloading:
+   GitHub Pages sometimes sends the 1 MB script at 30 KB/s (40 seconds), and cutting it off at 8 seconds was
+   the "menu didn't open" error. While it downloads, "Loading the menu…" shows. Once it has arrived: an error
+   with nothing drawn fails after 8 seconds, and no text after 30 (the app's own spinner has no text). */
+var started,loading=0,note;
 function check(){
-  var root=document.getElementById('root');
-  if(!root||!root.children.length||!(root.innerText||'').trim())fail("The menu didn't open in this browser."+(errors.length?' Details:':' No error was reported; try reloading.'));
+  var root=document.getElementById('root'),waited=Date.now()-started;
+  var mounted=root&&root.children.length,downloading=loading>0&&!mounted;
+  if(note&&mounted){note.remove();note=null}
+  if(root&&(root.innerText||'').trim())return;
+  if(errors.length&&!mounted&&!downloading&&waited>=8000)return fail("The menu didn't open in this browser. Details:");
+  if(waited<(downloading?120000:30000)){setTimeout(check,500);return}
+  fail(downloading?"The menu is taking too long to download. Check your connection and try reloading.":"The menu is taking too long to open. No error was reported; try reloading.");
 }
 fetch('/404.html',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).then(function(h){
 if(!/<script[^>]+src=/i.test(h))throw new Error('no app');
@@ -41,7 +50,18 @@ if(!/<script[^>]+src=/i.test(h))throw new Error('no app');
    are added again). */
 document.open();document.write(h);document.close();
 listen();
-setTimeout(check,8000)}).catch(function(e){errors.push(String(e&&e.message||e));fail()});
+/* The clock restarts when the scripts have arrived (or failed: the error listener has the reason). */
+[].forEach.call(document.querySelectorAll('script[src]'),function(s){
+  loading++;
+  function done(){loading--;if(!loading)started=Date.now()}
+  s.addEventListener('load',done);s.addEventListener('error',done);
+});
+note=document.createElement('p');
+note.textContent='Loading the menu…';
+note.style.cssText='position:fixed;left:0;right:0;top:45%;margin:0;text-align:center;font:15px system-ui,sans-serif;color:#5B5769;pointer-events:none';
+document.body.appendChild(note);
+started=Date.now();
+check()}).catch(function(e){errors.push(String(e&&e.message||e));fail()});
 })();
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
