@@ -218,7 +218,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* the guest's Order now, cart and Checkout run live (any dish, any amount), drawn like the app in dark mode
    at its own 390px width and zoomed to the phone */
-.live{width:390px;min-height:844px;display:flex;flex-direction:column;background:#000;color:#fff;font:15px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-align:left}
+.live{width:390px;display:flex;flex-direction:column;background:#000;color:#fff;font:15px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-align:left}
 .canvas.in .live{animation:pin .22s cubic-bezier(.23,1,.32,1)}
 .live :where(button){font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .live :where(button):active{opacity:.6}
@@ -287,9 +287,53 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lv-alert b{display:block;font-size:17px;font-weight:700}
 .lv-alert p{margin:6px 0 16px;color:rgba(235,235,245,.85);font-size:14px;white-space:pre-line}
 .lv-alert div{display:flex;gap:8px}
+.lv-alert div.lv-col{flex-direction:column}
 .lv-alert button{flex:1;min-height:44px;border:0;border-radius:12px;background:#fff;color:#000;font:inherit;font-weight:700;cursor:pointer}
 .lv-alert button.lv-quiet{background:rgba(118,118,128,.24);color:#fff}
 @keyframes pop{from{opacity:0;transform:scale(1.06)}}
+/* the till's New takeaway order, live, at the 1024px it was captured at */
+.live-till{width:1024px}
+.lt-head{display:flex;align-items:center;height:64px;padding:0 16px;border-bottom:.5px solid rgba(84,84,88,.65)}
+.lt-head svg{width:auto;height:26px;fill:initial;stroke:none}
+.lt-body{display:flex;flex-direction:column;gap:16px;padding:16px 16px 48px}
+.lt-title{margin:0;font-size:28px;font-weight:700;letter-spacing:-.4px}
+.lt-sub{margin:-8px 0 0;font-size:15px;color:rgba(235,235,245,.6)}
+.lt-search{min-height:44px;padding:0 16px;border:0;border-radius:14px;background:#1C1C1E;color:#fff;font:inherit;font-size:16px;outline:none}
+.lt-search::placeholder{color:rgba(235,235,245,.6)}
+[data-menu]{display:flex;flex-direction:column;gap:16px}
+.lt-tiles{display:flex;flex-wrap:wrap;gap:8px}
+.lt-tile{flex:1 1 150px;min-height:120px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:4px;padding:16px;border-radius:14px;background:#1C1C1E;text-align:left}
+.lt-tile svg{width:28px;height:28px;fill:currentColor;stroke:none}
+.lt-tile b{margin-top:4px;font-size:17px;font-weight:700;line-height:1.15}
+.lt-tile small{font-size:13px;color:rgba(235,235,245,.6)}
+.lt-tile[aria-pressed="true"]{background:#fff;color:#000}
+.lt-tile[aria-pressed="true"] small{color:#000;opacity:.85}
+.lt-badge{padding:2px 8px;border-radius:999px;background:#30D158;color:#fff;font-size:12px;font-weight:700}
+.lt-card{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:14px;background:#1C1C1E}
+.lt-row{display:flex;align-items:center;gap:8px;min-height:44px}
+.lt-row p,.lt-print p{flex:1;min-width:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.lt-row span,.lt-print span{font-size:16px}
+.lt-row small,.lt-print small{font-size:13px;color:rgba(235,235,245,.6)}
+.lt-step{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(118,118,128,.24);font-size:20px;font-weight:600}
+.lt-row output{min-width:20px;text-align:center;font-size:16px;font-weight:600}
+.lt-sec{margin:0 0 -8px;font-size:13px;font-weight:600;color:rgba(235,235,245,.6);text-transform:uppercase}
+.lt-link{align-self:flex-start;color:#0A84FF;font-size:15px;font-weight:600;text-align:left}
+.lt-muted{margin:0;font-size:15px;color:rgba(235,235,245,.6)}
+.lt-line{display:flex;flex-direction:column;gap:6px}
+.lt-line p,.lt-sum{display:flex;justify-content:space-between;gap:8px;margin:0;font-size:15px}
+.lt-total{font-size:17px;font-weight:700}
+.lt-note{min-height:36px;padding:0 12px;border:0;border-radius:7px;background:rgba(118,118,128,.24);color:#fff;font:inherit;font-size:14px;outline:none}
+.lt-note::placeholder{color:rgba(235,235,245,.6)}
+.lt-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:-6px}
+.lt-chip{padding:9px 16px;border-radius:999px;background:#1C1C1E;font-size:14px;font-weight:600}
+.lt-chip[aria-pressed="true"]{background:#fff;color:#000}
+.lt-print{flex-direction:row;align-items:center}
+.lt-switch{position:relative;flex:none;width:51px;height:31px;border-radius:999px;background:#39393D;transition:background-color .2s}
+.lt-switch i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;transition:transform .2s cubic-bezier(.23,1,.32,1)}
+.lt-switch[aria-checked="true"]{background:#30D158}
+.lt-switch[aria-checked="true"] i{transform:translateX(20px)}
+.lt-place{min-height:52px;border-radius:999px;background:#fff;color:#000;font-size:17px;font-weight:600}
+.lt-place[aria-disabled="true"]{opacity:.5}
 @media (prefers-reduced-motion:reduce){.canvas.in .live,.lv-alert{animation:none}}
 
 
@@ -519,6 +563,54 @@ footer svg{height:28px;width:auto;display:block}
      A screen is {id, title, desc, img, w, h, spots}; a spot is a button over the screenshot that does what
      the real button did when the screens were captured. Until the data arrives the first screen shows as
      a plain picture. */
+  /* What the live screens share: drawn at the app's own width W (CSS pixels of the captured screens) and
+     zoomed to the frame, at least as tall as it, and the app's Alert over it while the frame stops
+     scrolling. bind(root) wires a freshly drawn screen. */
+  function liveKit(ctx, W, bind){
+    var el = null, dim = null;
+    var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    function zoom(){
+      var z = ctx.view.clientWidth / W;
+      if (el) { el.style.zoom = z; el.style.minHeight = ctx.view.clientHeight / z + 'px'; }
+      if (dim) dim.firstChild.style.zoom = z;
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(zoom).observe(ctx.view); else addEventListener('resize', zoom);
+    function leave(){ if (dim) { dim.remove(); dim = null; ctx.view.style.overflowY = ''; } }
+    /* keep: the same screen again after a change (no slide-in, same scroll) */
+    function mount(html, keep, cls){
+      var top = ctx.view.scrollTop;
+      leave();
+      ctx.canvas.textContent = '';
+      el = document.createElement('div'); el.className = 'live' + (cls ? ' ' + cls : ''); el.innerHTML = html;
+      ctx.canvas.appendChild(el); zoom(); bind(el);
+      ctx.canvas.classList.remove('in');
+      if (keep) ctx.view.scrollTop = top;
+      else { void ctx.canvas.offsetWidth; if (!reduce) ctx.canvas.classList.add('in'); ctx.view.scrollTop = 0; }
+      return el;
+    }
+    /* the app's Alert: buttons [[label, onPress, 'cancel'?]], stacked when there are more than two */
+    function dialog(title, text, buttons){
+      leave();
+      dim = document.createElement('div'); dim.className = 'lv-dim';
+      dim.style.top = ctx.view.scrollTop + 'px'; dim.style.height = ctx.view.clientHeight + 'px';
+      var box = document.createElement('div'), row = document.createElement('div');
+      box.className = 'lv-alert'; box.setAttribute('role', 'alertdialog'); box.setAttribute('aria-label', title);
+      box.innerHTML = '<b>' + esc(title) + '</b><p>' + esc(text) + '</p>';
+      if (buttons.length > 2) row.className = 'lv-col';
+      buttons.forEach(function(bt){
+        var b = document.createElement('button');
+        b.type = 'button'; b.textContent = bt[0];
+        if (bt[2] === 'cancel') b.className = 'lv-quiet';
+        b.addEventListener('click', function(){ leave(); if (bt[1]) bt[1](); });
+        row.appendChild(b);
+      });
+      box.appendChild(row); dim.appendChild(box); ctx.canvas.appendChild(dim);
+      ctx.view.style.overflowY = 'hidden'; zoom();
+      row.lastChild.focus({ preventScroll: true });
+    }
+    return { mount: mount, leave: leave, dialog: dialog };
+  }
+
   /* The guest's Order now, cart and Checkout, live: any dish in any amount, the cart with notes and VAT,
      the order placed, served a few seconds later (staff do that in the app) and the bill asked for. Built
      from DATA.menu ([id, category, name, price, description], as the app listed it at the demo table) and
@@ -527,7 +619,8 @@ footer svg{height:28px;width:auto;display:block}
   function liveOrder(menu, ctx){
     var VAT = 0.14, DEMO = ['Caesar Salad', 'Pistachio Pancakes (3)', 'Iced Brown Sugar Latte', 'Classic Cheesecake'];
     var st = { cart: {}, notes: {}, query: '', placed: [], served: false, method: null, asked: false, points: 0, earned: 0, fresh: false };
-    var el = null, dim = null, serving = null;
+    var el = null, serving = null, kit = liveKit(ctx, 390, function(root){ bind(root); });
+    var leave = kit.leave, dialog = kit.dialog;
     var I = {
       back: '<svg viewBox="0 0 24 24"><path d="M20 12H5m6-7-7 7 7 7"/></svg>',
       search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>',
@@ -564,41 +657,10 @@ footer svg{height:28px;width:auto;display:block}
       st.served = false; st.asked = false; st.method = null; st.fresh = true;
     }
 
-    function zoom(){ var z = ctx.view.clientWidth / 390; if (el) el.style.zoom = z; if (dim) dim.firstChild.style.zoom = z; }
-    if ('ResizeObserver' in window) new ResizeObserver(zoom).observe(ctx.view); else addEventListener('resize', zoom);
-    function leave(){ if (dim) { dim.remove(); dim = null; ctx.view.style.overflowY = ''; } }
     /* keep: the same screen again after a change (no slide-in, same scroll) */
-    function mount(html, keep){
-      var top = ctx.view.scrollTop;
-      leave();
-      ctx.canvas.textContent = '';
-      el = document.createElement('div'); el.className = 'live'; el.innerHTML = html;
-      ctx.canvas.appendChild(el); zoom(); bind(el);
-      ctx.canvas.classList.remove('in');
-      if (keep) ctx.view.scrollTop = top;
-      else { void ctx.canvas.offsetWidth; if (!reduce) ctx.canvas.classList.add('in'); ctx.view.scrollTop = 0; }
-    }
+    function mount(html, keep){ el = kit.mount(html, keep); }
     function head(title, backTo){
       return '<div class="lv-top"><div class="lv-head">' + (backTo ? '<button type="button" data-go="' + backTo + '" aria-label="Back">' + I.back + '</button>' : '') + title + '</div>';
-    }
-    /* the app's Alert: buttons [[label, onPress]], the last one the main one */
-    function dialog(title, text, buttons){
-      leave();
-      dim = document.createElement('div'); dim.className = 'lv-dim';
-      dim.style.top = ctx.view.scrollTop + 'px'; dim.style.height = ctx.view.clientHeight + 'px';
-      var box = document.createElement('div'), row = document.createElement('div');
-      box.className = 'lv-alert'; box.setAttribute('role', 'alertdialog'); box.setAttribute('aria-label', title);
-      box.innerHTML = '<b>' + esc(title) + '</b><p>' + esc(text) + '</p>';
-      buttons.forEach(function(bt, i){
-        var b = document.createElement('button');
-        b.type = 'button'; b.textContent = bt[0];
-        if (i < buttons.length - 1) b.className = 'lv-quiet';
-        b.addEventListener('click', function(){ leave(); if (bt[1]) bt[1](); });
-        row.appendChild(b);
-      });
-      box.appendChild(row); dim.appendChild(box); ctx.canvas.appendChild(dim);
-      ctx.view.style.overflowY = 'hidden'; zoom();
-      row.lastChild.focus({ preventScroll: true });
     }
     function qty(m){
       var q = st.cart[m[0]] || 0, n = esc(m[2]);
@@ -713,7 +775,7 @@ footer svg{height:28px;width:auto;display:block}
         if (b.dataset.pay) { st.method = b.dataset.pay; return checkout(true); }
         if (b.hasAttribute('data-ask')) return ask();
         if (b.hasAttribute('data-place')) { place(); return ctx.fresh('order-placed'); }
-        if (b.hasAttribute('data-clear')) return dialog('Clear cart?', 'This removes every item from your cart.', [['Cancel'], ['Clear', function(){ st.cart = {}; st.notes = {}; cart(true); }]]);
+        if (b.hasAttribute('data-clear')) return dialog('Clear cart?', 'This removes every item from your cart.', [['Cancel', null, 'cancel'], ['Clear', function(){ st.cart = {}; st.notes = {}; cart(true); }]]);
         if (b.hasAttribute('data-more') || b.hasAttribute('data-less')) {
           var row = b.closest('[data-id]'), id = row.dataset.id, more = b.hasAttribute('data-more');
           st.cart[id] = Math.max(0, (st.cart[id] || 0) + (more ? 1 : -1));
@@ -767,8 +829,157 @@ footer svg{height:28px;width:auto;display:block}
     };
   }
 
+  /* The till's New takeaway order, live: category tiles with what is in the order, any dishes in any
+     amount, notes for the kitchen, VAT, how it was paid, and the order placed with its number. Same menu
+     as the phone (DATA.menu), the tiles' icons from DATA.tillIcons; drawn like the app at the 1024px the
+     till was captured at. */
+  function liveTill(menu, icons, ctx){
+    var DEMO = [['Plain Croissant', 'Savory Bakes'], ['Café Latte (Large)'], ['Cappuccino (Medium)'], ['Iced Latte (Large)'], ['Brownie']];
+    var PAY = { card: 'Card', cash: 'Cash', talabat_cash: 'Talabat cash', talabat_card: 'Talabat card' };
+    var st = { q: {}, order: [], notes: {}, query: '', cat: menu[0][1], pay: null, print: true, number: 28, fresh: false };
+    var el = null, kit = liveKit(ctx, 1024, function(root){ bind(root); });
+    var byId = {}, cats = [];
+    menu.forEach(function(m){ byId[m[0]] = m; if (cats.indexOf(m[1]) < 0) cats.push(m[1]); });
+    var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var money = function(n){ return 'EGP ' + (Math.round(n * 100) / 100).toLocaleString('en-US'); };
+    var norm = function(t){ return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+    var LOGO = '<svg viewBox="0 0 160.7 48.4" role="img" aria-label="tap@"><use href="#logo"></use></svg>';
+    /* the order's lines in the order they were added, as the till lists them */
+    function lines(){ return st.order.filter(function(id){ return st.q[id] > 0; }).map(function(id){ return { m: byId[id], q: st.q[id] }; }); }
+    function sums(){
+      var sub = 0; lines().forEach(function(l){ sub += l.m[3] * l.q; });
+      var vat = Math.round(sub * 0.14 * 100) / 100;
+      return { sub: sub, vat: vat, due: Math.round((sub + vat) * 100) / 100 };
+    }
+    function add(id, d){
+      st.q[id] = Math.max(0, (st.q[id] || 0) + d);
+      if (st.q[id] && st.order.indexOf(id) < 0) st.order.push(id);
+      if (!st.q[id]) { delete st.q[id]; delete st.notes[id]; st.order = st.order.filter(function(x){ return x !== id; }); }
+    }
+    function demo(){
+      if (lines().length) return;
+      DEMO.forEach(function(d){ menu.forEach(function(m){ if (m[2] === d[0]) add(m[0], 1); }); });
+      st.cat = 'Desserts'; st.pay = 'card';
+    }
+
+    function render(keep){
+      el = kit.mount('<div class="lt-head">' + LOGO + '</div><div class="lt-body">' +
+        '<p class="lt-title">New takeaway order</p><p class="lt-sub">tap@ · Alexandria</p>' +
+        '<input class="lt-search" type="search" placeholder="Search the menu" aria-label="Search the menu">' +
+        '<div data-menu></div>' +
+        '<p class="lt-sec">Customer (optional)</p><div class="lt-card"><button type="button" class="lt-link" data-scan>Scan the customer’s loyalty QR to give them points</button></div>' +
+        '<p class="lt-sec">Order</p><div class="lt-card" data-order></div>' +
+        '<p class="lt-sec">Payment</p><div class="lt-chips">' + chip('card') + chip('cash') + '</div><div class="lt-chips">' + chip('talabat_cash') + chip('talabat_card') + '</div>' +
+        '<div class="lt-card lt-print"><p><span>Print automatically</span><small>Receipt and kitchen ticket as soon as the order is placed</small></p>' +
+        '<button type="button" class="lt-switch" role="switch" aria-label="Print automatically" aria-checked="' + st.print + '" data-print><i></i></button></div>' +
+        '<button type="button" class="lt-place" data-place></button></div>', keep, 'live-till');
+      var input = el.querySelector('.lt-search');
+      input.value = st.query;
+      input.addEventListener('input', function(){ st.query = input.value; menuPart(); });
+      menuPart(); orderPart();
+    }
+    function chip(id){ return '<button type="button" class="lt-chip" aria-pressed="' + (st.pay === id) + '" data-pay="' + id + '">' + PAY[id] + '</button>'; }
+    /* the tiles (hidden while searching, which looks through every category) and the dishes */
+    function menuPart(){
+      var terms = norm(st.query).split(/\s+/).filter(Boolean), html = '';
+      if (!terms.length) {
+        html += '<div class="lt-tiles">' + cats.map(function(c){
+          var n = 0, added = 0;
+          menu.forEach(function(m){ if (m[1] === c) { n++; added += st.q[m[0]] || 0; } });
+          return '<button type="button" class="lt-tile" aria-pressed="' + (c === st.cat) + '" data-cat="' + esc(c) + '">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + (icons[c] || '') + '"/></svg><b>' + esc(c) + '</b><small>' + n + ' items</small>' +
+            (added ? '<span class="lt-badge">' + added + ' in order</span>' : '') + '</button>';
+        }).join('') + '</div>';
+      }
+      var shown = menu.filter(function(m){
+        if (!terms.length) return m[1] === st.cat;
+        var hay = norm(m[2] + ' ' + m[1]);
+        return terms.every(function(t){ return hay.indexOf(t) >= 0; });
+      });
+      html += '<div class="lt-card">' + (shown.length ? shown.map(function(m){
+        var q = st.q[m[0]] || 0, n = esc(m[2]);
+        return '<div class="lt-row" data-id="' + m[0] + '"><p><span>' + n + '</span><small>' + (terms.length ? esc(m[1]) + ' · ' : '') + money(m[3]) + '</small></p>' +
+          (q ? '<button type="button" class="lt-step" data-less aria-label="One less ' + n + '">−</button><output>' + q + '</output>' : '') +
+          '<button type="button" class="lt-step" data-more aria-label="Add ' + n + '">+</button></div>';
+      }).join('') : '<p class="lt-muted">Nothing matches.</p>') + '</div>';
+      el.querySelector('[data-menu]').innerHTML = html;
+    }
+    function orderPart(){
+      var ls = lines(), s = sums(), html = '';
+      if (ls.length) {
+        html = ls.map(function(l){
+          return '<div class="lt-line" data-id="' + l.m[0] + '"><p><span>' + l.q + ' × ' + esc(l.m[2]) + '</span><span>' + money(l.m[3] * l.q) + '</span></p>' +
+            '<input class="lt-note" maxlength="120" placeholder="Note, e.g. without tomato" aria-label="Note for ' + esc(l.m[2]) + '" value="' + esc(st.notes[l.m[0]] || '') + '"></div>';
+        }).join('') + '<p class="lt-sum"><span>Subtotal</span><span>' + money(s.sub) + '</span></p><p class="lt-sum"><span>VAT (14%)</span><span>' + money(s.vat) + '</span></p>';
+      } else html = '<p class="lt-muted">Add items from the menu above.</p>';
+      html += '<p class="lt-sum lt-total"><span>Total</span><span>' + money(s.due) + '</span></p>' + (ls.length ? '<button type="button" class="lt-link" data-clear>Clear</button>' : '');
+      el.querySelector('[data-order]').innerHTML = html;
+      var b = el.querySelector('[data-place]');
+      b.textContent = !ls.length ? 'Add items' : !st.pay ? 'Choose how it was paid' : 'Paid · place order · ' + money(s.due);
+      b.setAttribute('aria-disabled', String(!ls.length || !st.pay));
+    }
+    function place(){
+      var s = sums(), pay = PAY[st.pay], number = '#' + String(st.number++).padStart(5, '0');
+      st.q = {}; st.order = []; st.notes = {}; st.pay = null; st.query = ''; st.fresh = false;
+      render(true);
+      kit.dialog('Order placed · ' + number, money(s.due) + ' incl. VAT · ' + pay + ' · paid. It is on Live orders for the kitchen.', [
+        ['New order', null, 'cancel'],
+        [st.print ? 'Print again' : 'Print receipt', function(){ ctx.note('This prints the receipt and the kitchen ticket on the till’s printer.'); }],
+        ['Live orders', function(){ ctx.go('live-orders'); }]
+      ]);
+    }
+
+    function bind(root){
+      root.addEventListener('click', function(e){
+        var b = e.target.closest('button');
+        if (!b || !root.contains(b)) return;
+        if (b.dataset.cat) { st.cat = b.dataset.cat; return menuPart(); }
+        if (b.dataset.pay) { st.pay = b.dataset.pay; root.querySelectorAll('[data-pay]').forEach(function(c){ c.setAttribute('aria-pressed', String(c === b)); }); return orderPart(); }
+        if (b.hasAttribute('data-print')) { st.print = !st.print; return b.setAttribute('aria-checked', String(st.print)); }
+        if (b.hasAttribute('data-scan')) return ctx.note('In the app this opens the camera to scan the customer’s loyalty QR.');
+        if (b.hasAttribute('data-clear')) { st.q = {}; st.order = []; st.notes = {}; menuPart(); return orderPart(); }
+        if (b.hasAttribute('data-place')) {
+          if (!lines().length) return ctx.note('Add items from the menu first.');
+          if (!st.pay) return ctx.note('Choose how it was paid first.');
+          return place();
+        }
+        if (b.hasAttribute('data-more') || b.hasAttribute('data-less')) {
+          var id = b.closest('[data-id]').dataset.id, more = b.hasAttribute('data-more');
+          add(id, more ? 1 : -1); menuPart(); orderPart();
+          var again = root.querySelector('[data-menu] [data-id="' + id + '"] [data-' + (more ? 'more' : 'less') + ']') || root.querySelector('[data-menu] [data-id="' + id + '"] [data-more]');
+          if (again) again.focus({ preventScroll: true });
+        }
+      });
+      root.addEventListener('input', function(e){
+        if (e.target.classList.contains('lt-note')) st.notes[e.target.closest('[data-id]').dataset.id] = e.target.value;
+      });
+    }
+
+    /* every captured state of New order and Ready to pay is this one screen; Order placed shows its note */
+    function view(id){
+      if (!id) return null;
+      if (id === 'order-placed' || id === 'new-order-ready~place-takeaway-order') return 'placed';
+      if (/^new-order(-ready)?(~|$)/.test(id) || id === 'order-placed~new-order') return 'till';
+      return null;
+    }
+    return {
+      view: view,
+      leave: kit.leave,
+      preset: function(id){
+        if (id === 'new-order-ready' || id === 'order-placed') demo();
+        st.fresh = id === 'order-placed';
+      },
+      desc: function(v, s){ return s.n != null ? s.desc : 'Any dishes in any amount, a note for the kitchen, how it was paid, and the order placed.'; },
+      listed: function(v){ return v === 'placed' ? 'order-placed' : 'new-order'; },
+      render: function(v){
+        if (v === 'placed') { demo(); render(); return place(); }
+        render();
+      }
+    };
+  }
+
   var hintsOn = true;
-  fetch('img/screens/screens.json?v=44df7411').then(function(r){ return r.json(); }).then(function(DATA){
+  fetch('img/screens/screens.json?v=31d3777e').then(function(r){ return r.json(); }).then(function(DATA){
   document.querySelectorAll('[data-proto]').forEach(function(box){
     var sections = DATA.screens[box.dataset.proto], all = [], byId = {};
     sections.forEach(function(sec){ sec[1].forEach(function(s){ s.n = all.length; all.push(s); byId[s.id] = s; }); });
@@ -907,10 +1118,12 @@ footer svg{height:28px;width:auto;display:block}
     }
     /* once the frame is near the screen, what this screen's buttons open (and the next screen) load ahead */
     function ahead(s){ s.spots.forEach(function(p){ if (byId[p[4]]) preload(byId[p[4]]); }); if (all[s.n + 1]) preload(all[s.n + 1]); }
-    var live = box.dataset.proto === 'guest' && DATA.menu ? liveOrder(DATA.menu, {
+    var ctx = {
       byId: byId, canvas: canvas, view: view, note: note,
       go: function(id){ act(byId[id]); }, fresh: function(id){ trail = []; show(byId[id]); }, curId: function(){ return cur && cur.id; }
-    }) : null;
+    };
+    var live = !DATA.menu ? null : box.dataset.proto === 'guest' ? liveOrder(DATA.menu, ctx)
+      : box.dataset.proto === 'cashier' && DATA.tillIcons ? liveTill(DATA.menu, DATA.tillIcons, ctx) : null;
     show(all[0]);
     if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){
       if (!es[0].isIntersecting) return; o.disconnect(); seen = true; ahead(cur);
