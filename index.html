@@ -109,7 +109,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn:active{transform:scale(.97)}
 .btn-chili{background:var(--chili);color:var(--ink)}
 .btn-ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px var(--white)}
-.btn-ink{background:var(--ink);color:var(--white)}
 
 /* nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ink);color:var(--white);padding-inline:var(--gutter)}
@@ -144,82 +143,155 @@ button{font:inherit;color:inherit;cursor:pointer}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
 .steps li{counter-increment:s;display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:4px solid var(--ink)}
 .steps li::before{content:"0" counter(s);font-family:var(--display);font-weight:900;font-size:2.6rem;letter-spacing:-0.04em;line-height:1;color:var(--grape)}
+.steps h3{min-height:2.3em;text-wrap:balance}
 .steps p{color:var(--muted);font-size:.98rem}
 @media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
 
-/* guest demo */
+/* device frames */
 .guests{background:var(--mist)}.guests .phone{box-shadow:14px 14px 0 var(--ink)}
-.demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:clamp(28px,6vw,72px);align-items:start}
-.tabs{display:flex;flex-direction:column;gap:10px}
-.tab{display:flex;flex-direction:column;gap:2px;text-align:left;background:var(--white);border:2px solid var(--line);border-radius:18px;padding:12px 18px;min-height:44px}
-.tab b{font-family:var(--display);font-weight:900;letter-spacing:-0.03em;text-transform:lowercase}
-.tab span{color:var(--muted);font-size:.95rem}
-.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
-.tab[aria-selected="true"] span{color:var(--mist)}
-.tab[aria-selected="true"] b{color:var(--lime)}
 .more{color:var(--muted);font-size:.95rem;max-width:52ch}
 .phone{background:var(--ink);border-radius:46px;padding:12px;box-shadow:14px 14px 0 var(--grape);max-width:360px;width:calc(100% - 14px);justify-self:center}
-.screen{background:var(--mist);border-radius:36px;overflow-x:hidden;overflow-y:auto;aspect-ratio:620/1096}
+.screen{background:#000;border-radius:36px;overflow-x:hidden;overflow-y:auto;aspect-ratio:390/844;overscroll-behavior:contain}
 .screen img{display:block;width:100%;height:auto}
-.shead{background:var(--grape);color:var(--white);padding:26px 22px 20px;display:flex;flex-direction:column;gap:4px}
-.shead small{font-weight:600;font-size:.8rem}
-.shead b{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:-0.04em}
-.pane{flex:1;display:flex;flex-direction:column;gap:12px;padding:18px 20px 20px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px;border-bottom:2px solid var(--mist)}
-.row b{font-weight:800;font-size:.98rem}
-.row small{color:var(--muted);font-size:.82rem;font-variant-numeric:tabular-nums}
-.add{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--grape);color:var(--white);font-weight:800;font-size:1.4rem;line-height:1;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
-.add:active{transform:scale(.97)}
-.bar{margin-top:auto;display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-radius:18px;background:var(--chili);color:var(--ink);font-weight:800;padding:16px 18px;min-height:52px;font-variant-numeric:tabular-nums}
-.seg{display:flex;gap:6px;background:var(--mist);border-radius:999px;padding:5px;align-self:flex-start}
-.seg button{border:0;background:transparent;border-radius:999px;padding:10px 22px;min-height:44px;font-weight:600}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--white);font-weight:800}
-.note{font-size:.85rem;color:var(--muted)}
-.big{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;line-height:1.05;text-transform:lowercase}
-.card-ink{background:var(--ink);color:var(--white);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.card-ink small{color:var(--lime);font-weight:800}
-.meter{height:10px;border-radius:5px;background:#3A3648;overflow:hidden}
-.meter i{display:block;height:100%;width:60%;background:var(--mango);border-radius:5px}
-.stars{display:flex;gap:4px}
-.stars button{border:0;background:transparent;padding:0;width:44px;height:44px}
-.stars svg{width:34px;height:34px;fill:var(--line)}
-.stars button.on svg{fill:var(--mango)}
-textarea{font:inherit;width:100%;min-height:88px;border:2px solid var(--line);border-radius:16px;padding:12px 14px;resize:vertical;background:var(--white);color:var(--ink)}
-.sent{background:var(--lime);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:8px}
 .eg{text-align:center;font-size:.8rem;color:var(--muted);margin-top:14px}
-@media (max-width:860px){.demo{grid-template-columns:minmax(0,1fr)}}
-
-/* owners */
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:2px solid var(--line);background:var(--white);border-radius:999px;min-height:44px;padding:8px 20px;font-family:var(--display);font-weight:700;font-size:.85rem;letter-spacing:-0.02em}
-.chip[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--lime)}
-.desc{font-size:1.05rem;max-width:60ch;min-height:3.2em}
-.browser{background:var(--white);border:2px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:14px 14px 0 var(--grape);width:calc(100% - 14px)}
-.browser-bar{display:flex;gap:7px;padding:12px 16px;background:var(--ink)}
+.browser{background:var(--ink);border:2px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:14px 14px 0 var(--grape);width:calc(100% - 14px)}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--ink)}
 .browser-bar i{width:10px;height:10px;border-radius:50%;background:#3A3648}
-.browser img{display:block;width:100%;height:auto}
-.view{max-height:min(72vh,640px);overflow-y:auto;background:var(--mist)}
-.owners{background:var(--mist)}
-.dash{background:var(--white);color:var(--ink);border-radius:28px;overflow:hidden;box-shadow:14px 14px 0 var(--grape);max-width:760px;width:calc(100% - 14px)}
-.dash-h{background:var(--mist);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.dash-h b{font-family:var(--display);font-weight:900;letter-spacing:-0.04em;font-size:1.1rem}
-.live{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem}
-.live i{width:12px;height:12px;border-radius:50%;background:var(--chili)}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
-td{padding:14px 24px;border-top:2px solid var(--mist);white-space:nowrap}
-td:first-child{font-family:var(--display);font-weight:700;letter-spacing:-0.03em}
-td:nth-child(2){color:var(--muted)}
-td:last-child{text-align:right;font-weight:800}
-.st{display:inline-block;font-weight:800;font-size:.85rem;padding:6px 14px;border-radius:999px}
-.st-new{background:var(--lime)}.st-prep{background:var(--grape);color:var(--white)}.st-ready{background:var(--mango)}.st-served{background:var(--mist)}
-.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 32px}
-.feats div{display:flex;flex-direction:column;gap:8px;border-top:2px solid var(--line);padding-top:16px}
-.feats h3{color:var(--grape)}
-.feats p{color:var(--muted);font-size:.98rem}
-@media (max-width:860px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.feats{grid-template-columns:minmax(0,1fr)}}
+.browser-bar span{margin-left:10px;font-size:.75rem;color:#8E8A9C;font-variant-numeric:tabular-nums}
+.view{max-height:min(72vh,640px);overflow-y:auto;background:#000;overscroll-behavior:contain}
+.tablet{background:var(--ink);border-radius:30px;padding:16px;box-shadow:14px 14px 0 var(--grape);width:calc(100% - 14px);max-width:900px}
+.tablet .view{border-radius:16px;max-height:min(72vh,660px)}
+.owners,.faqs{background:var(--mist)}
+
+/* screen prototypes: every captured screen, scrollable, with its buttons clickable (see the script at the end) */
+.proto{display:grid;gap:22px}
+.proto-side{grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:clamp(28px,6vw,72px);align-items:start}
+.proto-stage{display:flex;flex-direction:column;gap:14px;min-width:0}
+.proto-side .proto-stage{position:sticky;top:84px}
+/* back on top of the device, where an app or a browser has it, with the way through the screens */
+.proto-top{display:flex;align-items:center;gap:8px;width:calc(100% - 14px)}
+.proto-top span{flex:1}
+.proto-side .proto-top{max-width:360px}
+.proto-top .pbtn{min-height:40px;padding:4px 14px;font-size:.84rem}
+.proto-nav{display:flex;flex-direction:column;gap:16px;min-width:0}
+.proto-seg{display:flex;flex-wrap:wrap;gap:4px;align-self:flex-start;max-width:100%;background:var(--white);border:2px solid var(--line);border-radius:26px;padding:4px}
+.proto-seg button{border:0;background:transparent;border-radius:999px;min-height:44px;padding:8px 18px;font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:-0.02em;color:var(--muted);transition:background-color .16s,color .16s}
+.proto-seg button:hover{color:var(--ink)}
+.proto-seg button[aria-selected="true"]{background:var(--ink);color:var(--lime)}
+.proto-screens{display:flex;flex-wrap:wrap;gap:2px 4px}
+.proto-screens[hidden]{display:none}
+.proto-screens button{border:0;background:transparent;min-height:44px;padding:8px 12px;font-weight:600;font-size:.92rem;color:var(--muted);border-radius:12px;position:relative}
+.proto-screens button:hover{color:var(--ink)}
+.proto-screens button[aria-selected="true"]{color:var(--ink);font-weight:800}
+.proto-screens button[aria-selected="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:3px;border-radius:2px;background:var(--grape)}
+.canvas{position:relative}
+.canvas img{display:block;width:100%;height:auto}
+.canvas.in img{animation:pin .22s cubic-bezier(.23,1,.32,1)}
+@keyframes pin{from{opacity:.25;transform:translateY(6px)}}
+.spot{position:absolute;padding:0;border:0;background:transparent;border-radius:12px;cursor:pointer}
+.spot::after{content:"";position:absolute;inset:-2px;border-radius:inherit;box-shadow:inset 0 0 0 2px var(--lime);opacity:0;transition:opacity .16s}
+.hints .spot::after{opacity:.6}
+.spot:hover::after,.spot:focus-visible::after{opacity:1;background:rgba(212,255,58,.14)}
+.spot:focus-visible{outline:none}
+.spot.info{cursor:pointer}
+.spot.info::after{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.hints .spot.info::after{opacity:0}
+.spot.info:hover::after,.spot.info:focus-visible::after{opacity:1;background:rgba(255,255,255,.08)}
+.phone,.browser,.tablet{position:relative}
+.proto-note{position:fixed;left:50%;bottom:24px;z-index:30;width:max-content;max-width:min(440px,calc(100vw - 32px));transform:translate(-50%,8px);margin:0;padding:10px 16px;border-radius:14px;background:var(--lime);color:var(--ink);font-size:.86rem;font-weight:600;line-height:1.35;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s cubic-bezier(.23,1,.32,1)}
+.proto-note.on{opacity:1;transform:translate(-50%,0)}
+.proto-bar{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:8px 24px;padding-top:4px}
+.proto-bar .now{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:3px}
+.proto-side .proto-bar{max-width:360px;margin-inline:auto;width:100%}
+.proto-side .proto-bar .now{min-height:5.6em}
+.proto-bar .now b{font-family:var(--display);font-weight:900;letter-spacing:-0.03em;text-transform:lowercase}
+.proto-bar .now span{color:var(--muted);font-size:.92rem}
+.proto-bar .now small{color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.pbtn{border:2px solid var(--ink);background:var(--white);border-radius:999px;min-height:44px;min-width:44px;padding:6px 16px;font-weight:800;font-size:.9rem}
+.pbtn:disabled{opacity:.35;cursor:default}
+.pbtn:not(:disabled):active{transform:scale(.97)}
+.hint-toggle{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--muted);min-height:44px;cursor:pointer;white-space:nowrap}
+.hint-toggle input{width:20px;height:20px;accent-color:var(--grape)}
+@media (max-width:860px){.proto-side{grid-template-columns:minmax(0,1fr)}.proto-side .proto-stage{position:static;order:-1}.proto-side .phone,.proto-side .proto-top{margin-inline:auto}}
+@media (prefers-reduced-motion:reduce){.canvas.in img{animation:none}}
+
+/* the guest's Order now, cart and Checkout run live (any dish, any amount), drawn like the app in dark mode
+   at its own 390px width and zoomed to the phone */
+.live{width:390px;min-height:844px;display:flex;flex-direction:column;background:#000;color:#fff;font:15px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-align:left}
+.canvas.in .live{animation:pin .22s cubic-bezier(.23,1,.32,1)}
+.live :where(button){font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.live :where(button):active{opacity:.6}
+.live svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lv-top{position:sticky;top:0;z-index:2;background:#000}
+.lv-head{display:flex;align-items:center;gap:14px;height:64px;padding:0 16px;border-bottom:.5px solid rgba(84,84,88,.65);font-size:17px;font-weight:600}
+.lv-head button{display:grid;place-items:center;width:30px;height:30px;margin-left:-4px}
+.lv-head svg{width:24px;height:24px}
+.lv-search{display:flex;align-items:center;gap:8px;height:44px;margin:12px 16px 4px;padding:0 12px;border-radius:12px;background:rgba(118,118,128,.24);color:rgba(235,235,245,.6)}
+.lv-search svg{width:18px;height:18px}
+.lv-search input{flex:1;min-width:0;border:0;background:none;color:#fff;font:inherit;font-size:17px;outline:none}
+.lv-search input::placeholder{color:rgba(235,235,245,.6)}
+.lv-sec{margin:0;padding:16px 16px 6px;font-size:13px;font-weight:600;color:rgba(235,235,245,.6);text-transform:uppercase;background:#000}
+.lv-row{position:relative;display:flex;align-items:center;gap:12px;min-height:66px;padding:10px 16px;background:#1C1C1E}
+.lv-row+.lv-row::before{content:"";position:absolute;left:16px;right:0;top:0;height:.5px;background:rgba(84,84,88,.65)}
+.lv-row div{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lv-row b{font-size:17px;font-weight:600}
+.lv-row small{font-size:13px;color:rgba(235,235,245,.6)}
+.lv-row span{font-size:15px;font-weight:700}
+.lv-add{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(118,118,128,.24);color:#0A84FF}
+.lv-step{margin:0;display:flex;align-items:center;height:36px;border-radius:18px;background:rgba(118,118,128,.24);color:#0A84FF}
+.lv-step button{display:grid;place-items:center;width:36px;height:36px}
+.lv-step output{min-width:22px;text-align:center;color:#fff;font-size:17px;font-weight:700}
+.lv-none{padding:80px 24px;text-align:center;color:rgba(235,235,245,.6);font-size:15px}
+.lv-none b{display:block;margin-bottom:6px;color:#fff;font-size:17px}
+.lv-bar{position:sticky;bottom:0;z-index:2;margin-top:auto;padding:8px 16px 18px;background:rgba(0,0,0,.88)}
+.lv-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;padding:0 16px;border-radius:14px;background:#fff;color:#000;font-size:17px;font-weight:600}
+.lv-cta small{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:14px;font-weight:400;opacity:.75}
+.lv-cta[aria-disabled="true"]{opacity:.45}
+.lv-body{display:flex;flex-direction:column;gap:16px;padding:16px}
+.lv-card{background:#1C1C1E;border-radius:14px;overflow:hidden}
+.lv-line{position:relative;display:flex;flex-direction:column;gap:10px;padding:14px 16px}
+.lv-line+.lv-line::before{content:"";position:absolute;left:16px;right:0;top:0;height:.5px;background:rgba(84,84,88,.65)}
+.lv-line>div{display:flex;align-items:center;gap:12px}
+.lv-line>div>p:not(.lv-step){flex:1;min-width:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.lv-line b{font-size:17px;font-weight:600}
+.lv-line small{font-size:13px;color:rgba(235,235,245,.6)}
+.lv-note{height:40px;padding:0 12px;border:0;border-radius:10px;background:rgba(118,118,128,.24);color:#fff;font:inherit;font-size:15px;outline:none}
+.lv-note::placeholder{color:rgba(235,235,245,.6)}
+.lv-sum{display:flex;flex-direction:column;gap:8px;padding:14px 16px}
+.lv-sum p{display:flex;justify-content:space-between;gap:12px;margin:0;font-size:17px}
+.lv-sum p b{font-weight:700}
+.lv-sum hr{width:100%;margin:2px 0;border:0;border-top:.5px solid rgba(84,84,88,.65)}
+.lv-sum .lv-fine{display:block;font-size:13px;color:rgba(235,235,245,.6)}
+.lv-star{color:#FFD60A}
+.lv-star svg{width:18px;height:18px;fill:currentColor;stroke:none;vertical-align:-3px;margin-right:6px}
+.lv-red{align-self:center;padding:10px 16px;color:#FF453A;font-size:17px}
+.lv-label{margin:4px 4px -8px;font-size:13px;font-weight:600;color:rgba(235,235,245,.6);text-transform:uppercase}
+.lv-item{position:relative;display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:10px 16px;text-align:left}
+.lv-item+.lv-item::before{content:"";position:absolute;left:54px;right:0;top:0;height:.5px;background:rgba(84,84,88,.65)}
+.lv-item p{flex:1;min-width:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.lv-item b{font-size:17px;font-weight:500}
+.lv-item small{font-size:13px;color:rgba(235,235,245,.6)}
+.lv-item svg{width:24px;height:24px}
+.lv-radio{width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid rgba(235,235,245,.3)}
+.lv-item[aria-checked="true"] .lv-radio{border:6px solid #fff;background:#1C1C1E}
+.lv-link{color:#0A84FF}
+.lv-empty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 20px;text-align:center}
+.lv-empty svg{width:44px;height:44px;color:rgba(235,235,245,.3);stroke-width:1.6}
+.lv-empty b{font-size:17px;font-weight:600}
+.lv-empty small{font-size:15px;color:rgba(235,235,245,.6)}
+.lv-ghost{margin-top:8px;padding:12px 22px;border-radius:999px;background:rgba(118,118,128,.24);font-weight:600}
+.lv-wait{margin:-6px 4px 0;font-size:13px;color:rgba(235,235,245,.6)}
+.lv-dim{position:absolute;left:0;right:0;z-index:5;display:grid;place-items:center;background:rgba(0,0,0,.6)}
+.lv-alert{width:290px;padding:20px 18px 16px;border-radius:20px;background:#2C2C2E;color:#fff;text-align:center;font:15px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;animation:pop .2s cubic-bezier(.23,1,.32,1)}
+.lv-alert b{display:block;font-size:17px;font-weight:700}
+.lv-alert p{margin:6px 0 16px;color:rgba(235,235,245,.85);font-size:14px;white-space:pre-line}
+.lv-alert div{display:flex;gap:8px}
+.lv-alert button{flex:1;min-height:44px;border:0;border-radius:12px;background:#fff;color:#000;font:inherit;font-weight:700;cursor:pointer}
+.lv-alert button.lv-quiet{background:rgba(118,118,128,.24);color:#fff}
+@keyframes pop{from{opacity:0;transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.canvas.in .live,.lv-alert{animation:none}}
+
 
 /* answers */
 .qs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
@@ -262,6 +334,7 @@ footer svg{height:28px;width:auto;display:block}
       <li><a href="#owners">your dashboard</a></li>
       <li><a href="#how">how it works</a></li>
       <li><a href="#guests">guest view</a></li>
+      <li><a href="#till">the till</a></li>
       <li><a href="#faq">questions</a></li>
       <li><a href="/features/">all features</a></li>
     </ul>
@@ -314,20 +387,16 @@ footer svg{height:28px;width:auto;display:block}
     <div class="stack">
       <span class="pill">your dashboard</span>
       <h2>your restaurant, on <span style="color:var(--grape)">one screen.</span></h2>
-      <p class="lead">Orders arrive live, with how long each table has waited. Everything else you need to run the floor is one tap away. These are real screens from the dashboard, shown with test data. Scroll inside the frame to see more.</p>
+      <p class="lead">Orders arrive live, with how long each table has waited. Everything else you need to run the floor is one tap away. Try it below: this is the real dashboard with a month of a demo cafe's orders, and every button does what it does in the app.</p>
     </div>
-    <div class="stack" data-switch style="gap:18px">
-      <div class="chips" role="tablist" aria-label="Dashboard screens">
-        <button class="chip" role="tab" id="o-dash" aria-controls="o-view" aria-selected="true" data-src="img/admin-dashboard-1.png,img/admin-dashboard-2.png" data-size="1500x747,1500x487" data-alt="Dashboard with revenue, orders, customers, best selling items and recent orders" data-desc="Revenue, orders and customers for any branch and period, your best sellers and recent orders, with live orders one tap away.">dashboard</button>
-        <button class="chip" role="tab" id="o-ins" aria-controls="o-view" aria-selected="false" data-src="img/admin-insights-1.png,img/admin-insights-2.png,img/admin-insights-3.png" data-size="1500x709,1500x553,1500x654" data-alt="Insights with busiest hours and days, payment split, branches, revenue by category, top tables and slow sellers" data-desc="Busiest hours and days, cash against card, each branch, revenue by category, top tables and what is not selling.">insights</button>
-        <button class="chip" role="tab" id="o-menu" aria-controls="o-view" aria-selected="false" data-src="img/admin-menu.png" data-size="1500x757" data-alt="Menu screen with two cakes switched to sold out at one branch" data-desc="Switch a dish to sold out for one branch, change a price or add an item.">menu</button>
-        <button class="chip" role="tab" id="o-fb" aria-controls="o-view" aria-selected="false" data-src="img/admin-feedback.png" data-size="1500x763" data-alt="Feedback screen with an average rating, star breakdown and a low ratings alert" data-desc="Your average rating, the star breakdown, and the low ratings that need a look.">feedback</button>
-        <button class="chip" role="tab" id="o-cust" aria-controls="o-view" aria-selected="false" data-src="img/admin-customers.png" data-size="1500x763" data-alt="Customers screen with member counts and gender and age breakdowns" data-desc="How many members you have, and the age and gender of those who chose to share.">customers</button>
-      </div>
-      <p class="desc" data-desc-out>Revenue, orders and customers for any branch and period, your best sellers and recent orders, with live orders one tap away.</p>
-      <div class="browser" id="o-view" role="tabpanel">
-        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="view" data-imgs tabindex="0" aria-label="Dashboard screen, scrollable"><img loading="lazy" src="img/admin-dashboard-1.png" width="1500" height="747" alt="Dashboard with revenue, orders, customers, best selling items and recent orders"><img src="img/admin-dashboard-2.png" width="1500" height="487" alt="" loading="lazy"></div>
+    <div class="proto proto-wide" data-proto="owner">
+      <div class="proto-nav"></div>
+      <div class="proto-stage">
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>tapat.co/admin</span></div>
+          <div class="view" data-screen tabindex="0" role="tabpanel" aria-label="Dashboard screen, scrollable"><div class="canvas"><img src="img/screens/owner-dashboard.webp" width="1500" height="1894" alt="Dashboard"></div></div>
+        </div>
+        <div class="proto-bar"></div>
       </div>
     </div>
   </div>
@@ -342,7 +411,7 @@ footer svg{height:28px;width:auto;display:block}
     <ol class="steps">
       <li><h3>a tag on every table</h3><p>Each tag holds a link that already knows your restaurant, branch and table number.</p></li>
       <li><h3>guests tap their phone</h3><p>The page opens in the browser on iPhone and Android. There is no app to download.</p></li>
-      <li><h3>they order from their seat</h3><p>Menu, cart and checkout, with the table already filled in. Cash or card, paid at the table.</p></li>
+      <li><h3>they order from their seat</h3><p>The menu and cart, with the table already filled in. When they're done, they ask for the bill from their phone and pay by cash or card at the table.</p></li>
       <li><h3>you see it live</h3><p>The order reaches your dashboard in real time, and you move it along as the kitchen works.</p></li>
     </ol>
   </div>
@@ -353,34 +422,41 @@ footer svg{height:28px;width:auto;display:block}
     <div class="stack">
       <span class="pill">for guests</span>
       <h2>what opens when a guest taps.</h2>
-      <p class="lead">No app and no download. The tag opens this page in the phone's browser, already set to your restaurant and their table. Your version carries your own logo, menu and rewards.</p>
+      <p class="lead">No app and no download. The tag opens this page in the phone's browser, already set to your restaurant and their table. Your version carries your own logo, menu and rewards. Try it on the phone: order, follow the order to the bill, collect points.</p>
     </div>
-    <div class="demo" data-switch>
-      <div class="stack">
-        <div class="tabs" role="tablist" aria-label="Guest screens">
-          <button class="tab" role="tab" id="t-home" aria-controls="g-view" aria-selected="true" data-src="img/guest-home-1.png,img/guest-home-2.png" data-size="620x1031,620x410" data-alt="Guest home screen for Demo Cafe table 5 with a stamp card and links to the menu, ordering, rewards, feedback and a game"><b>home</b><span>The first screen: their table, a stamp card and everything they can do.</span></button>
-          <button class="tab" role="tab" id="t-menu" aria-controls="g-view" aria-selected="false" data-src="img/guest-menu-pdf.png" data-size="620x1083" data-alt="Full PDF menu with breakfast dishes and prices"><b>menu</b><span>Your full menu as a PDF, as you designed it.</span></button>
-          <button class="tab" role="tab" id="t-order" aria-controls="g-view" aria-selected="false" data-src="img/guest-order.png" data-size="620x1097" data-alt="Order screen listing salads with prices in EGP and an add button for each"><b>order</b><span>Search, add to cart and send. The table number comes from the tag.</span></button>
-          <button class="tab" role="tab" id="t-rewards" aria-controls="g-view" aria-selected="false" data-src="img/guest-rewards.png" data-size="620x1097" data-alt="Rewards screen with a points balance, a stamp card and rewards to redeem"><b>rewards</b><span>Points on every order and a stamp card, redeemed for rewards you set.</span></button>
-          <button class="tab" role="tab" id="t-qr" aria-controls="g-view" aria-selected="false" data-src="img/guest-qr.png" data-size="620x1095" data-alt="Loyalty QR code shown to staff to collect rewards"><b>loyalty code</b><span>A personal QR code guests show your staff to collect a reward.</span></button>
-          <button class="tab" role="tab" id="t-feedback" aria-controls="g-view" aria-selected="false" data-src="img/guest-feedback.png" data-size="620x1097" data-alt="Feedback screen with five stars to tap and a comment box"><b>feedback</b><span>A star rating and a comment, sent to you anonymously.</span></button>
-          <button class="tab" role="tab" id="t-profile" aria-controls="g-view" aria-selected="false" data-src="img/guest-profile.png" data-size="620x1097" data-alt="Profile screen with switches for sharing age, gender and name with restaurants"><b>profile</b><span>Guests choose what they share with you and whether they get offers.</span></button>
-        </div>
-        <p class="more">Scroll inside the phone to see the rest of a screen. Guests also get a puzzle game, BlockBomb, to play while they wait.</p>
-      </div>
-      <div>
+    <div class="proto proto-side" data-proto="guest">
+      <div class="proto-nav"><p class="more">Use the phone as a guest would: order any dishes, place the order, pay at the table, collect points. Scroll inside it for the rest of a screen.</p></div>
+      <div class="proto-stage">
         <div class="phone">
-          <div class="screen" id="g-view" role="tabpanel" data-imgs tabindex="0" aria-label="Phone screen, scrollable"><img loading="lazy" src="img/guest-home-1.png" width="620" height="1031" alt="Guest home screen for Demo Cafe table 5 with a stamp card and links to the menu, ordering, rewards, feedback and a game"><img src="img/guest-home-2.png" width="620" height="410" alt="" loading="lazy"></div>
+          <div class="screen" data-screen tabindex="0" role="tabpanel" aria-label="Phone screen, scrollable"><div class="canvas"><img src="img/screens/guest-home.webp" width="620" height="1524" alt="Home"></div></div>
         </div>
-        <p class="eg">Real screens from the app, shown with a demo cafe and test data.</p>
+        <div class="proto-bar"></div>
+        <p class="eg">Real screens from the app in dark mode, with a demo cafe and test data.</p>
       </div>
     </div>
   </div>
 </section>
 
+<section class="band till" id="till">
+  <div class="wrap stack" style="gap:32px">
+    <div class="stack">
+      <span class="pill">at the till</span>
+      <h2>a till for your cashiers.</h2>
+      <p class="lead">Cashiers sign in on a tablet at the counter. They take takeaway and Talabat orders, follow the same live queue, scan loyalty codes and print the day's sales. They never see your revenue, menu prices or customers.</p>
+    </div>
+    <div class="proto proto-wide" data-proto="cashier">
+      <div class="proto-nav"></div>
+      <div class="proto-stage">
+        <div class="tablet">
+          <div class="view" data-screen tabindex="0" role="tabpanel" aria-label="Till screen, scrollable"><div class="canvas"><img src="img/screens/cashier-home.webp" width="1400" height="1050" alt="Cashier home"></div></div>
+        </div>
+        <div class="proto-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-<section class="band" id="faq">
+<section class="band faqs" id="faq">
   <div class="wrap stack" style="gap:36px">
     <div class="stack">
       <span class="pill">questions</span>
@@ -388,10 +464,10 @@ footer svg{height:28px;width:auto;display:block}
     </div>
     <div class="faq">
       <div><h3>do guests need an app?</h3><p>No. The tag opens a web page in the phone's browser, on iPhone and Android.</p></div>
-      <div><h3>how do guests pay?</h3><p>At the table, as they do today. They choose cash or card when they order, so your staff know what to bring.</p></div>
-      <div><h3>what do I need in the restaurant?</h3><p>One NFC tag per table, and a phone, tablet or computer that stays on your dashboard.</p></div>
-      <div><h3>what if a phone has no NFC?</h3><p>Each table also has a link that opens the same page, so every guest can order.</p></div>
-      <div><h3>what do I learn about my guests?</h3><p>Only what they agree to share: age, gender and a shortened name. Their email and phone number are never shared with restaurants.</p></div>
+      <div><h3>how do guests pay?</h3><p>At the table, as they do today. Once their food is served they ask for the bill from their phone and say cash or card, so your staff know what to bring.</p></div>
+      <div><h3>what do I need in the restaurant?</h3><p>One NFC tag per table, and a phone, tablet or computer that stays on your dashboard. A receipt printer is optional, for bills and kitchen tickets.</p></div>
+      <div><h3>what if a phone has no NFC?</h3><p>Each table also has a QR code that opens the same page, so every guest can order.</p></div>
+      <div><h3>what do I learn about my guests?</h3><p>Only what they agree to share: age, gender and a shortened name, and their phone number if they turn on offers on WhatsApp. Their email is never shared with restaurants.</p></div>
       <div><h3>can I run more than one branch?</h3><p>Yes. Each branch has its own tables, sold-out items and numbers, under one login.</p></div>
     </div>
   </div>
@@ -413,7 +489,7 @@ footer svg{height:28px;width:auto;display:block}
 <footer>
   <div class="wrap">
     <svg viewBox="0 0 160.7 48.4" role="img" aria-label="tap@"><use href="#logo"></use></svg>
-    <span>order @ your table. tapat.co · <a href="/features/">all features</a> · <a href="mailto:info@tapat.co">info@tapat.co</a></span>
+    <span>order @ your table. tapat.co · <a href="mailto:info@tapat.co">info@tapat.co</a></span>
     <span>© 2026 Tap@</span>
   </div>
 </footer>
@@ -438,22 +514,409 @@ footer svg{height:28px;width:auto;display:block}
   }
   if (!reduce) setTimeout(nextWord, 1600);
 
-  /* screen switchers: each tab swaps the screenshots beside it */
-  document.querySelectorAll('[data-switch]').forEach(function(box){
-    var view = box.querySelector('[data-imgs]'), out = box.querySelector('[data-desc-out]');
-    box.addEventListener('click', function(e){
-      var t = e.target.closest('[role="tab"]'); if (!t) return;
-      box.querySelectorAll('[role="tab"]').forEach(function(x){ x.setAttribute('aria-selected', String(x === t)); });
-      var srcs = t.dataset.src.split(','), sizes = t.dataset.size.split(',');
-      view.textContent = '';
-      srcs.forEach(function(src, i){
-        var im = document.createElement('img'), wh = sizes[i].split('x');
-        im.src = src; im.width = +wh[0]; im.height = +wh[1]; im.alt = i ? '' : t.dataset.alt;
-        view.appendChild(im);
+  /* screen prototypes: img/screens/screens.json has, per group, `screens` ([section, [screen…]], the list)
+     and `more` (the states a button leads to: a dialog, a sheet, a switched filter, each with its `parent`).
+     A screen is {id, title, desc, img, w, h, spots}; a spot is a button over the screenshot that does what
+     the real button did when the screens were captured. Until the data arrives the first screen shows as
+     a plain picture. */
+  /* The guest's Order now, cart and Checkout, live: any dish in any amount, the cart with notes and VAT,
+     the order placed, served a few seconds later (staff do that in the app) and the bill asked for. Built
+     from DATA.menu ([id, category, name, price, description], as the app listed it at the demo table) and
+     drawn like the app; the screens around them (home, Rewards…) stay screenshots. ctx: byId, canvas,
+     view, note, go(id) (a tap, onto the trail), fresh(id) (a new trail), curId(). */
+  function liveOrder(menu, ctx){
+    var VAT = 0.14, DEMO = ['Caesar Salad', 'Pistachio Pancakes (3)', 'Iced Brown Sugar Latte', 'Classic Cheesecake'];
+    var st = { cart: {}, notes: {}, query: '', placed: [], served: false, method: null, asked: false, points: 0, earned: 0, fresh: false };
+    var el = null, dim = null, serving = null;
+    var I = {
+      back: '<svg viewBox="0 0 24 24"><path d="M20 12H5m6-7-7 7 7 7"/></svg>',
+      search: '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>',
+      plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+      minus: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>',
+      cart: '<svg viewBox="0 0 24 24"><path d="M2.5 4h2.6l2.4 10.6h10.6L20.5 7.5H6.3"/><circle cx="9.6" cy="19" r="1.4"/><circle cx="16.8" cy="19" r="1.4"/></svg>',
+      table: '<svg viewBox="0 0 24 24"><path d="M6 3v6a2 2 0 0 0 4 0V3M8 3v18M17 21V3c-2.4 1.4-3 4-3 7v4h3"/></svg>',
+      clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+      done: '<svg viewBox="0 0 24 24" style="stroke:none"><circle cx="12" cy="12" r="10" fill="#30D158"/><path d="m7.5 12.4 3 3 6-6.4" fill="none" stroke="#000" stroke-width="2.2"/></svg>',
+      card: '<svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/></svg>',
+      cash: '<svg viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5m12-5v5"/></svg>',
+      star: '<svg viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>',
+      receipt: '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6m-6 4h6"/></svg>'
+    };
+    var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var money = function(n){ return 'EGP ' + (Math.round(n * 100) / 100).toLocaleString('en-US'); };
+    var pts = function(n){ return n.toLocaleString('en-US') + ' pts'; };
+    var items = function(n){ return n + (n === 1 ? ' item' : ' items'); };
+    var norm = function(t){ return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+    /* in menu order, as the app lists a cart */
+    function lines(cart){ return menu.filter(function(m){ return cart[m[0]] > 0; }).map(function(m){ return { m: m, q: cart[m[0]] }; }); }
+    function sums(ls){
+      var sub = 0, n = 0;
+      ls.forEach(function(l){ sub += l.m[3] * l.q; n += l.q; });
+      var vat = Math.round(sub * VAT * 100) / 100;
+      return { n: n, sub: sub, vat: vat, total: Math.round((sub + vat) * 100) / 100 };
+    }
+    function tab(){ var all = {}; st.placed.forEach(function(o){ for (var id in o) all[id] = (all[id] || 0) + o[id]; }); return lines(all); }
+    function demoCart(){ if (!lines(st.cart).length) menu.forEach(function(m){ if (DEMO.indexOf(m[2]) >= 0) st.cart[m[0]] = 1; }); }
+    function place(){
+      demoCart();
+      st.earned = Math.floor(sums(lines(st.cart)).sub); st.points += st.earned;
+      st.placed.push(st.cart); st.cart = {}; st.notes = {};
+      st.served = false; st.asked = false; st.method = null; st.fresh = true;
+    }
+
+    function zoom(){ var z = ctx.view.clientWidth / 390; if (el) el.style.zoom = z; if (dim) dim.firstChild.style.zoom = z; }
+    if ('ResizeObserver' in window) new ResizeObserver(zoom).observe(ctx.view); else addEventListener('resize', zoom);
+    function leave(){ if (dim) { dim.remove(); dim = null; ctx.view.style.overflowY = ''; } }
+    /* keep: the same screen again after a change (no slide-in, same scroll) */
+    function mount(html, keep){
+      var top = ctx.view.scrollTop;
+      leave();
+      ctx.canvas.textContent = '';
+      el = document.createElement('div'); el.className = 'live'; el.innerHTML = html;
+      ctx.canvas.appendChild(el); zoom(); bind(el);
+      ctx.canvas.classList.remove('in');
+      if (keep) ctx.view.scrollTop = top;
+      else { void ctx.canvas.offsetWidth; if (!reduce) ctx.canvas.classList.add('in'); ctx.view.scrollTop = 0; }
+    }
+    function head(title, backTo){
+      return '<div class="lv-top"><div class="lv-head">' + (backTo ? '<button type="button" data-go="' + backTo + '" aria-label="Back">' + I.back + '</button>' : '') + title + '</div>';
+    }
+    /* the app's Alert: buttons [[label, onPress]], the last one the main one */
+    function dialog(title, text, buttons){
+      leave();
+      dim = document.createElement('div'); dim.className = 'lv-dim';
+      dim.style.top = ctx.view.scrollTop + 'px'; dim.style.height = ctx.view.clientHeight + 'px';
+      var box = document.createElement('div'), row = document.createElement('div');
+      box.className = 'lv-alert'; box.setAttribute('role', 'alertdialog'); box.setAttribute('aria-label', title);
+      box.innerHTML = '<b>' + esc(title) + '</b><p>' + esc(text) + '</p>';
+      buttons.forEach(function(bt, i){
+        var b = document.createElement('button');
+        b.type = 'button'; b.textContent = bt[0];
+        if (i < buttons.length - 1) b.className = 'lv-quiet';
+        b.addEventListener('click', function(){ leave(); if (bt[1]) bt[1](); });
+        row.appendChild(b);
       });
-      view.scrollTop = 0;
-      if (out && t.dataset.desc) out.textContent = t.dataset.desc;
+      box.appendChild(row); dim.appendChild(box); ctx.canvas.appendChild(dim);
+      ctx.view.style.overflowY = 'hidden'; zoom();
+      row.lastChild.focus({ preventScroll: true });
+    }
+    function qty(m){
+      var q = st.cart[m[0]] || 0, n = esc(m[2]);
+      return q ? '<p class="lv-step"><button type="button" data-less aria-label="Remove one ' + n + '">' + I.minus + '</button><output>' + q + '</output><button type="button" data-more aria-label="Add another ' + n + '">' + I.plus + '</button></p>'
+        : '<button type="button" class="lv-add" data-more aria-label="Add ' + n + ' to cart">' + I.plus + '</button>';
+    }
+
+    function order(keep){
+      mount(head('Order now', 'home') + '<label class="lv-search">' + I.search + '<input type="search" placeholder="Search food and drinks" aria-label="Search food and drinks"></label></div>' +
+        '<div data-list></div><div class="lv-bar"><button type="button" class="lv-cta" data-go="cart"></button></div>', keep);
+      var input = el.querySelector('input');
+      input.value = st.query;
+      input.addEventListener('input', function(){ st.query = input.value; list(); });
+      list(); bar();
+    }
+    function list(){
+      var terms = norm(st.query).split(/\s+/).filter(Boolean), html = '', last = '';
+      menu.forEach(function(m){
+        var hay = norm(m[2] + ' ' + m[4] + ' ' + m[1]);
+        if (!terms.every(function(t){ return hay.indexOf(t) >= 0; })) return;
+        if (m[1] !== last) { html += '<h4 class="lv-sec">' + esc(m[1]) + '</h4>'; last = m[1]; }
+        html += '<div class="lv-row" data-id="' + m[0] + '"><div><b>' + esc(m[2]) + '</b>' + (m[4] ? '<small>' + esc(m[4]) + '</small>' : '') +
+          '<span>' + money(m[3]) + '</span></div>' + qty(m) + '</div>';
+      });
+      el.querySelector('[data-list]').innerHTML = html ||
+        '<p class="lv-none"><b>No results for “' + esc(st.query) + '”</b>Try a different word, like “coffee” or “salad”.</p>';
+    }
+    function bar(){
+      var s = sums(lines(st.cart)), b = el.querySelector('.lv-cta');
+      b.innerHTML = I.cart + 'View cart' + (s.n ? '<small>' + items(s.n) + ' · ' + money(s.sub) + ' · +' + pts(Math.floor(s.sub)) + '</small>' : '');
+      b.setAttribute('aria-label', s.n ? 'View cart, ' + items(s.n) + ', ' + money(s.sub) : 'View cart, empty');
+    }
+
+    function cart(keep){
+      var ls = lines(st.cart);
+      if (!ls.length) {
+        mount(head('Your cart', 'order') + '</div><div class="lv-empty" style="flex:1;justify-content:center">' + I.cart +
+          '<b>Your cart is empty</b><small>Add something delicious from the menu.</small><button type="button" class="lv-ghost" data-go="order">Browse the menu</button></div>', keep);
+        return;
+      }
+      var s = sums(ls), html = head('Your cart', 'order') + '</div><div class="lv-body"><div class="lv-card">';
+      ls.forEach(function(l){
+        var m = l.m;
+        html += '<div class="lv-line" data-id="' + m[0] + '"><div><p><b>' + esc(m[2]) + '</b><small>' + money(m[3]) + ' · ' + money(m[3] * l.q) + '</small></p>' + qty(m) + '</div>' +
+          '<input class="lv-note" maxlength="120" placeholder="Note for the kitchen, e.g. without tomato" aria-label="Note for ' + esc(m[2]) + '" value="' + esc(st.notes[m[0]] || '') + '"></div>';
+      });
+      html += '</div><div class="lv-card lv-sum"><p>Subtotal (' + items(s.n) + ')<b>' + money(s.sub) + '</b></p><p>VAT (14%)<b>' + money(s.vat) + '</b></p>' +
+        '<p>Total<b>' + money(s.total) + '</b></p><p><span><span class="lv-star">' + I.star + '</span>You’ll earn</span><b>' + pts(Math.floor(s.sub)) + '</b></p>' +
+        '<span class="lv-fine">14% VAT is added to the total. A 12% service charge is added at the restaurant.</span></div>' +
+        '<button type="button" class="lv-red" data-clear>Clear cart</button></div>' +
+        '<div class="lv-bar"><button type="button" class="lv-cta" data-place>Place order · ' + money(s.total) + '</button></div>';
+      mount(html, keep);
+    }
+    /* Order placed: the app goes home and shows it there */
+    function placed(){
+      if (!st.fresh) place();
+      st.fresh = false;
+      leave(); el = null;
+      var img = new Image(), home = ctx.byId.home;
+      img.src = home.img; img.width = home.w; img.height = home.h; img.alt = 'Home';
+      ctx.canvas.textContent = ''; ctx.canvas.appendChild(img); ctx.view.scrollTop = 0;
+      dialog('Order placed', 'Alexandria · Table 7\nYour order is being prepared.\n\nYou earned ' + pts(st.earned) + '.\nNew balance: ' + pts(st.points) +
+        '\n\nWhen you’re done, tap Checkout to pay.', [['OK', function(){ ctx.fresh('home'); }]]);
+    }
+
+    function checkout(keep){
+      var ls = tab(), s = sums(ls), html = head('Checkout') + '</div><div class="lv-body"><p class="lv-label">Your table</p>' +
+        '<div class="lv-card"><div class="lv-item">' + I.table + '<p><b>Table 7</b><small>tap@ · Alexandria</small></p></div></div>';
+      clearTimeout(serving);
+      if (!ls.length) {
+        html += '<div class="lv-card lv-empty">' + I.receipt + '<b>Nothing to pay yet</b><small>Order from Order now. Once your order is served, come back here to pay.</small>' +
+          '<button type="button" class="lv-link" data-go="order">Order now</button></div></div>';
+      } else if (st.asked) {
+        html += '<div class="lv-card"><div class="lv-item">' + I.done + '<p><b>Bill requested · ' + (st.method === 'card' ? 'Card' : 'Cash') + '</b><small>' +
+          money(s.total) + ' · The staff are on their way.</small></p></div></div></div>';
+      } else if (!st.served) {
+        html += '<div class="lv-card"><div class="lv-item">' + I.clock + '<p><b>Still being prepared</b><small>' + items(s.n) + ' · You can pay once it’s served.</small></p></div></div>' +
+          '<p class="lv-wait">In this demo the kitchen serves it in a few seconds.</p></div>';
+        /* in the restaurant, staff mark it served on Live orders */
+        serving = setTimeout(function(){
+          st.served = true;
+          if (view(ctx.curId()) === 'checkout') { checkout(true); ctx.note('Your order was served. Choose how to pay.'); }
+        }, 4500);
+      } else {
+        html += '<p class="lv-label">Payment method</p><div class="lv-card" role="radiogroup" aria-label="Payment method">' +
+          [['card', 'Card', 'Pay by card at your table'], ['cash', 'Cash', 'Pay with cash at your table']].map(function(p){
+            return '<button type="button" class="lv-item" role="radio" aria-checked="' + (st.method === p[0]) + '" data-pay="' + p[0] + '">' + I[p[0]] +
+              '<p><b>' + p[1] + '</b><small>' + p[2] + '</small></p><span class="lv-radio"></span></button>';
+          }).join('') + '</div><div class="lv-card lv-sum">' +
+          ls.map(function(l){ return '<p><span>' + l.q + ' × ' + esc(l.m[2]) + '</span><b>' + money(l.m[3] * l.q) + '</b></p>'; }).join('') +
+          '<hr><p>Subtotal (' + items(s.n) + ')<b>' + money(s.sub) + '</b></p><p>VAT (14%)<b>' + money(s.vat) + '</b></p><p>Total<b>' + money(s.total) + '</b></p>' +
+          '<span class="lv-fine">14% VAT is added to the total. A 12% service charge is added at the restaurant.</span></div>' +
+          '<p class="lv-label">Promo code</p><div class="lv-card"><p class="lv-item"><small style="font-size:15px">Got a code from the restaurant? ' +
+          '<button type="button" class="lv-link" data-go="log-in">Log in</button> to use it.</small></p></div></div>' +
+          '<div class="lv-bar"><button type="button" class="lv-cta" data-ask' + (st.method ? '>Ask for the bill · ' + money(s.total) : ' aria-disabled="true">Choose how to pay') + '</button></div>';
+      }
+      mount(html, keep);
+    }
+    function ask(){
+      if (!st.method) return ctx.note('Choose Card or Cash first.');
+      var total = sums(tab()).total;
+      st.asked = true; checkout(true);
+      dialog('Bill requested', money(total) + ' by ' + (st.method === 'card' ? 'Card' : 'Cash') + '.\n\n' +
+        (st.method === 'card' ? 'The staff are on their way with the card machine.' : 'The staff are on their way with your bill.'), [['OK']]);
+    }
+
+    function bind(root){
+      root.addEventListener('click', function(e){
+        var b = e.target.closest('button');
+        if (!b || !root.contains(b) || b.getAttribute('aria-disabled') === 'true' && !b.hasAttribute('data-ask')) return;
+        if (b.dataset.go) return ctx.go(b.dataset.go);
+        if (b.dataset.pay) { st.method = b.dataset.pay; return checkout(true); }
+        if (b.hasAttribute('data-ask')) return ask();
+        if (b.hasAttribute('data-place')) { place(); return ctx.fresh('order-placed'); }
+        if (b.hasAttribute('data-clear')) return dialog('Clear cart?', 'This removes every item from your cart.', [['Cancel'], ['Clear', function(){ st.cart = {}; st.notes = {}; cart(true); }]]);
+        if (b.hasAttribute('data-more') || b.hasAttribute('data-less')) {
+          var row = b.closest('[data-id]'), id = row.dataset.id, more = b.hasAttribute('data-more');
+          st.cart[id] = Math.max(0, (st.cart[id] || 0) + (more ? 1 : -1));
+          if (!st.cart[id]) delete st.cart[id];
+          if (row.classList.contains('lv-row')) {
+            row.lastElementChild.outerHTML = qty(menu.filter(function(m){ return m[0] === id; })[0]);
+            bar();
+          } else cart(true);
+          var again = el.querySelector('[data-id="' + id + '"] [data-' + (more ? 'more' : 'less') + ']') || el.querySelector('[data-id="' + id + '"] [data-more]');
+          if (again) again.focus({ preventScroll: true });
+        }
+      });
+      root.addEventListener('input', function(e){
+        if (e.target.classList.contains('lv-note')) st.notes[e.target.closest('[data-id]').dataset.id] = e.target.value;
+      });
+    }
+
+    /* which live screen a captured one is: every state of Order now, the cart (also "View cart" while
+       empty), Order placed and every Checkout state (also Checkout from home with nothing ordered) */
+    function view(id){
+      if (!id) return null;
+      if (id === 'order-placed') return 'placed';
+      if (id === 'order~view-cart-empty' || /^cart(~|$)/.test(id)) return 'cart';
+      if (/^order(-added)?(~|$)/.test(id)) return 'order';
+      if (/^(checkout|bill-requested)/.test(id) || id === 'home~checkout') return 'checkout';
+      return null;
+    }
+    var DESC = {
+      order: 'The whole menu with search. Tap + on any dish, − to take one off.',
+      cart: 'A note for the kitchen on any dish, the VAT, and the points the order earns.',
+      checkout: 'Pay after eating: card or cash at the table, then ask for the bill.'
+    };
+    return {
+      view: view,
+      leave: leave,
+      /* a listed screen picked from the list starts from what it shows */
+      preset: function(id){
+        if (id === 'order-added' || id === 'cart') demoCart();
+        if (/^(checkout|bill-requested)/.test(id)) {
+          if (!st.placed.length) place();
+          st.fresh = false;
+          st.served = id !== 'checkout-preparing';
+          st.asked = id === 'bill-requested';
+          st.method = id === 'checkout-card' || st.asked ? 'card' : null;
+        }
+      },
+      desc: function(v, s){ return s.n != null ? s.desc : DESC[v]; },
+      /* the listed screen a live one shows as in the list and the caption */
+      listed: function(v){ return { order: 'order', cart: 'cart', placed: 'order-placed', checkout: 'checkout' }[v]; },
+      render: function(v){ ({ order: order, cart: cart, placed: placed, checkout: checkout })[v](); }
+    };
+  }
+
+  var hintsOn = true;
+  fetch('img/screens/screens.json?v=44df7411').then(function(r){ return r.json(); }).then(function(DATA){
+  document.querySelectorAll('[data-proto]').forEach(function(box){
+    var sections = DATA.screens[box.dataset.proto], all = [], byId = {};
+    sections.forEach(function(sec){ sec[1].forEach(function(s){ s.n = all.length; all.push(s); byId[s.id] = s; }); });
+    DATA.more[box.dataset.proto].forEach(function(s){ byId[s.id] = s; });
+    /* the listed screen a state belongs to */
+    function root(s){ while (s.parent && byId[s.parent]) s = byId[s.parent]; return s; }
+    var nav = box.querySelector('.proto-nav'), view = box.querySelector('[data-screen]');
+    var canvas = view.querySelector('.canvas'), bar = box.querySelector('.proto-bar');
+    var tabs = {}, trail = [], cur = null;
+
+    /* two levels, so only a handful of choices show at once: the sections as one segmented control,
+       then the screens of the open section */
+    var segs = [], groups = [], openSec = -1;
+    var seg = document.createElement('div');
+    seg.className = 'proto-seg'; seg.setAttribute('role', 'tablist'); seg.setAttribute('aria-label', 'Sections');
+    if (sections.length > 1) nav.appendChild(seg);
+    sections.forEach(function(sec, i){
+      var sb = document.createElement('button');
+      sb.type = 'button'; sb.setAttribute('role', 'tab'); sb.textContent = sec[0].toLowerCase();
+      sb.addEventListener('click', function(){ jump(sec[1][0]); });
+      segs.push(sb); seg.appendChild(sb);
+      var chips = document.createElement('div');
+      chips.className = 'proto-screens'; chips.setAttribute('role', 'tablist'); chips.setAttribute('aria-label', sec[0]);
+      sec[1].forEach(function(s){
+        s.sec = i;
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('role', 'tab');
+        /* the section already says it: "inventory · stock" is just "stock" here */
+        b.textContent = s.title.toLowerCase().replace(/^(order history|invoices|inventory|checkout|menu|new order) · /, '').replace(/ \((till|view only)\)$/, '');
+        b.addEventListener('click', function(){ jump(s); });
+        tabs[s.id] = b; chips.appendChild(b);
+      });
+      chips.hidden = true; groups.push(chips); nav.appendChild(chips);
     });
+    var toast = document.createElement('p'), toastTimer;
+    toast.className = 'proto-note'; toast.setAttribute('role', 'status');
+    view.parentNode.appendChild(toast);
+    function note(text){
+      toast.textContent = text;
+      toast.classList.add('on'); clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('on'); }, 2600);
+    }
+    function openSection(i){
+      if (i === openSec) return;
+      openSec = i;
+      segs.forEach(function(b, j){ b.setAttribute('aria-selected', String(j === i)); });
+      groups.forEach(function(g, j){ g.hidden = j !== i; });
+    }
+
+    var top = document.createElement('div');
+    top.className = 'proto-top';
+    top.innerHTML = '<button class="pbtn" type="button" data-back>\u2190 back</button><span></span>' +
+      '<button class="pbtn" type="button" data-prev aria-label="Previous screen">\u2039 prev</button>' +
+      '<button class="pbtn" type="button" data-next aria-label="Next screen">next \u203a</button>';
+    bar.parentNode.insertBefore(top, bar.parentNode.firstChild);
+    bar.innerHTML = '<div class="now" aria-live="polite"><b></b><span></span><small></small></div>' +
+      '<label class="hint-toggle"><input type="checkbox" checked> show what you can tap</label>';
+    var back = top.querySelector('[data-back]'), prev = top.querySelector('[data-prev]'), next = top.querySelector('[data-next]');
+    var hint = bar.querySelector('input');
+    back.addEventListener('click', function(){ if (trail.length) show(trail.pop()); });
+    prev.addEventListener('click', function(){ jump(all[Math.max(0, root(cur).n - 1)]); });
+    next.addEventListener('click', function(){ jump(all[Math.min(all.length - 1, root(cur).n + 1)]); });
+    hint.addEventListener('change', function(){
+      hintsOn = hint.checked;
+      document.querySelectorAll('[data-proto]').forEach(function(p){
+        p.classList.toggle('hints', hintsOn);
+        p.querySelector('.hint-toggle input').checked = hintsOn;
+      });
+    });
+    box.classList.add('hints');
+
+    /* trail: the screens a tapped button came from, for Back (the list and prev/next start it again) */
+    var loaded = {}, seen = false, token = 0;
+    function preload(s){ if (!loaded[s.id]) { loaded[s.id] = new Image(); loaded[s.id].src = s.img; } return loaded[s.id]; }
+    /* the list and prev/next start a new trail (and set the live order up for the screen picked) */
+    function jump(s){ trail = []; if (live) live.preset(s.id); show(s); }
+    function show(s){
+      cur = s;
+      var lv = live && live.view(s.id), r = lv && s.n == null && byId[live.listed(lv)] || root(s);
+      if (live) live.leave();
+      openSection(r.sec);
+      Object.keys(tabs).forEach(function(id){ tabs[id].setAttribute('aria-selected', String(id === r.id)); });
+      bar.querySelector('.now b').textContent = lv ? r.title : s.title || r.title;
+      bar.querySelector('.now span').textContent = lv ? live.desc(lv, s) : s.desc;
+      bar.querySelector('.now small').textContent = (r.n + 1) + ' of ' + all.length + ' screens';
+      back.disabled = !trail.length; prev.disabled = r.n === 0; next.disabled = r.n === all.length - 1;
+      if (lv) { ++token; live.render(lv); return; }
+      /* the old screen stays until the new one has loaded, so a tap never flashes an empty frame */
+      var img = document.createElement('img'), mine = ++token;
+      img.src = s.img; img.width = s.w; img.height = s.h; img.alt = s.title + ': ' + s.desc;
+      var swap = function(){
+        if (mine !== token) return;
+        canvas.textContent = '';
+        canvas.appendChild(img);
+        /* p = [x%, y%, w%, h%, screen it opens or 0, label, kind]; kind: 'input', 'ext:<url>' (it left the
+           app), 'file:<path>' (it downloaded a file), 'none' (nothing on screen changed, e.g. printing),
+           'final' (a delete the demo didn't do) */
+        s.spots.forEach(function(p){
+          var to = byId[p[4]], kind = p[6] || '', b = document.createElement('button'), name = p[5] || 'This button';
+          var ext = kind.indexOf('ext:') === 0 ? kind.slice(4) : '', file = kind.indexOf('file:') === 0 ? kind.slice(5) : '';
+          b.type = 'button'; b.className = to || ext || file ? 'spot' : 'spot info';
+          b.style.cssText = 'left:' + p[0] + '%;top:' + p[1] + '%;width:' + p[2] + '%;height:' + p[3] + '%';
+          b.setAttribute('aria-label', to ? name + ', opens ' + (to.title || root(to).title) : name);
+          b.addEventListener('click', function(){ act(to, name, kind, ext, file); });
+          canvas.appendChild(b);
+        });
+        canvas.classList.remove('in'); void canvas.offsetWidth; if (!reduce) canvas.classList.add('in');
+        /* a screen whose news is further down (the order a void just marked) opens scrolled to it */
+        view.scrollTop = s.focus ? Math.max(0, s.focus * canvas.offsetHeight - view.clientHeight / 3) : 0;
+      };
+      img.decode ? img.decode().then(swap, swap) : (img.onload = img.onerror = swap);
+      if (seen) ahead(s);
+    }
+    function act(to, name, kind, ext, file){
+      if (to) {
+        /* going back to a screen already on the trail (OK on a dialog) is going back, not forward */
+        var at = trail.indexOf(to);
+        if (at >= 0) trail.length = at; else trail.push(cur);
+        show(to); return;
+      }
+      if (file) { window.open(file, '_blank', 'noopener'); note('The app downloads this as a PDF; it opens in a new tab.'); return; }
+      if (ext) {
+        var host = ext.replace(/^https?:\/\/(www\.)?/, '').split(/[/?#]/)[0];
+        if (ext.indexOf('mailto:') === 0) { location.href = ext; return; }
+        if (host === 'tapat.co') { window.open(ext, '_blank', 'noopener'); return; }
+        if (host === 'accounts.google.com') return note('This opens Google sign-in.');
+        note(/wa\.me|whatsapp/.test(host) ? 'This opens WhatsApp with the message ready to send.' : 'This opens ' + host + ' in a new tab.');
+        return;
+      }
+      if (kind === 'input') return note('In the app you type here.');
+      if (kind === 'final') return note('In the app this deletes it after you confirm. The demo keeps its data.');
+      if (/print/i.test(name)) return note('This opens the print dialog for the receipt printer.');
+      if (/password reset/i.test(name)) return note('This emails them a link to set a new password.');
+      if (kind === 'demo') return note('The demo goes no further with “' + name + '”. ← takes you back.');
+      note('\u201c' + name + '\u201d works in the app, with nothing new to show here.');
+    }
+    /* once the frame is near the screen, what this screen's buttons open (and the next screen) load ahead */
+    function ahead(s){ s.spots.forEach(function(p){ if (byId[p[4]]) preload(byId[p[4]]); }); if (all[s.n + 1]) preload(all[s.n + 1]); }
+    var live = box.dataset.proto === 'guest' && DATA.menu ? liveOrder(DATA.menu, {
+      byId: byId, canvas: canvas, view: view, note: note,
+      go: function(id){ act(byId[id]); }, fresh: function(id){ trail = []; show(byId[id]); }, curId: function(){ return cur && cur.id; }
+    }) : null;
+    show(all[0]);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){
+      if (!es[0].isIntersecting) return; o.disconnect(); seen = true; ahead(cur);
+    }, { rootMargin: '300px' }).observe(box);
+    else seen = true;
+  });
   });
 })();
 </script>
