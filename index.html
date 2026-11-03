@@ -396,8 +396,8 @@ footer svg{height:28px;width:auto;display:block}
       <h1>What if every table could take its own order?</h1>
       <p class="sub">Tap@ puts your menu, ordering and loyalty on a small tag at each table. Guests tap and order from their seat. You watch every order arrive, live.</p>
       <div class="cta-row">
-        <a class="btn btn-chili" href="#guests">see the guest view</a>
-        <a class="btn btn-ghost" href="#owners">see your dashboard</a>
+        <a class="btn btn-chili" href="#owners">see your dashboard</a>
+        <a class="btn btn-ghost" href="#guests">see the guest view</a>
       </div>
     </div>
     <div class="sticker" aria-hidden="true">
@@ -977,7 +977,9 @@ footer svg{height:28px;width:auto;display:block}
     };
   }
 
-  var hintsOn = true;
+  /* the screens look as they do in the app; a button lights up under the pointer, and "show what you can
+     tap" outlines them all */
+  var hintsOn = false;
   fetch('img/screens/screens.json?v=31d3777e').then(function(r){ return r.json(); }).then(function(DATA){
   document.querySelectorAll('[data-proto]').forEach(function(box){
     var sections = DATA.screens[box.dataset.proto], all = [], byId = {};
@@ -1035,7 +1037,7 @@ footer svg{height:28px;width:auto;display:block}
       '<button class="pbtn" type="button" data-next aria-label="Next screen">next \u203a</button>';
     bar.parentNode.insertBefore(top, bar.parentNode.firstChild);
     bar.innerHTML = '<div class="now" aria-live="polite"><b></b><span></span><small></small></div>' +
-      '<label class="hint-toggle"><input type="checkbox" checked> show what you can tap</label>';
+      '<label class="hint-toggle"><input type="checkbox"> show what you can tap</label>';
     var back = top.querySelector('[data-back]'), prev = top.querySelector('[data-prev]'), next = top.querySelector('[data-next]');
     var hint = bar.querySelector('input');
     back.addEventListener('click', function(){ if (trail.length) show(trail.pop()); });
@@ -1048,7 +1050,6 @@ footer svg{height:28px;width:auto;display:block}
         p.querySelector('.hint-toggle input').checked = hintsOn;
       });
     });
-    box.classList.add('hints');
 
     /* trail: the screens a tapped button came from, for Back (the list and prev/next start it again) */
     var loaded = {}, seen = false, token = 0;
