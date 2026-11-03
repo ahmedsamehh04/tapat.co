@@ -136,6 +136,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .sticker{justify-self:center;width:min(100%,330px);aspect-ratio:1;border-radius:50%;background:var(--lime);box-shadow:14px 14px 0 var(--grape);transform:rotate(-7deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink)}
 .sticker svg{width:46%;height:auto;--at:var(--grape);animation:wobble 2.4s ease-in-out infinite;transform-origin:50% 55%}
 .sticker b{font-family:var(--display);font-weight:900;font-size:1.3rem;letter-spacing:-0.04em}
+/* the sticker is a tag to tap: it takes you to the guest view */
+a.sticker{text-decoration:none;transition:transform .2s cubic-bezier(.23,1,.32,1),box-shadow .2s cubic-bezier(.23,1,.32,1)}
+a.sticker:hover{transform:rotate(-4deg) scale(1.02)}
+a.sticker:active{transform:rotate(-7deg) translate(6px,6px);box-shadow:8px 8px 0 var(--grape)}
+a.sticker:focus-visible{outline:3px solid var(--white);outline-offset:6px}
 @keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
 @media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.sticker{width:220px;justify-self:start;margin-left:8px}}
 
@@ -400,10 +405,10 @@ footer svg{height:28px;width:auto;display:block}
         <a class="btn btn-ghost" href="#guests">see the guest view</a>
       </div>
     </div>
-    <div class="sticker" aria-hidden="true">
-      <svg viewBox="0 0 181.7 178.6"><use href="#sym"></use></svg>
+    <a class="sticker" href="#guests" aria-label="Tap here: try the guest view">
+      <svg viewBox="0 0 181.7 178.6" aria-hidden="true"><use href="#sym"></use></svg>
       <b>tap here</b>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -465,10 +470,10 @@ footer svg{height:28px;width:auto;display:block}
     <div class="stack">
       <span class="pill">for guests</span>
       <h2>what opens when a guest taps.</h2>
-      <p class="lead">No app and no download. The tag opens this page in the phone's browser, already set to your restaurant and their table. Your version carries your own logo, menu and rewards. Try it on the phone: order, follow the order to the bill, collect points.</p>
+      <p class="lead">No app and no download. The tag opens this page in the phone's browser, already set to your restaurant and their table. Your version carries your own logo, menu and rewards. Try it on the phone: order, then follow the order to the bill.</p>
     </div>
     <div class="proto proto-side" data-proto="guest">
-      <div class="proto-nav"><p class="more">Use the phone as a guest would: order any dishes, place the order, pay at the table, collect points. Scroll inside it for the rest of a screen.</p></div>
+      <div class="proto-nav"><p class="more">Use the phone as a guest would: order any dishes, place the order and pay at the table. Points and rewards are for guests who sign in (see loyalty). Scroll inside the phone for the rest of a screen.</p></div>
       <div class="proto-stage">
         <div class="phone">
           <div class="screen" data-screen tabindex="0" role="tabpanel" aria-label="Phone screen, scrollable"><div class="canvas"><img src="img/screens/guest-home.webp" width="620" height="1524" alt="Home"></div></div>
