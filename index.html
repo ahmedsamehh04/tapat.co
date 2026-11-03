@@ -617,7 +617,7 @@ footer svg{height:28px;width:auto;display:block}
      view, note, go(id) (a tap, onto the trail), fresh(id) (a new trail), curId(). */
   function liveOrder(menu, ctx){
     var VAT = 0.14, DEMO = ['Caesar Salad', 'Pistachio Pancakes (3)', 'Iced Brown Sugar Latte', 'Classic Cheesecake'];
-    var st = { cart: {}, notes: {}, query: '', placed: [], served: false, method: null, asked: false, points: 0, earned: 0, fresh: false };
+    var st = { cart: {}, notes: {}, query: '', placed: [], served: false, method: null, asked: false, paid: false, points: 0, earned: 0, fresh: false };
     var el = null, serving = null, kit = liveKit(ctx, 390, function(root){ bind(root); });
     var leave = kit.leave, dialog = kit.dialog;
     var I = {
@@ -632,7 +632,8 @@ footer svg{height:28px;width:auto;display:block}
       card: '<svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h3"/></svg>',
       cash: '<svg viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5m12-5v5"/></svg>',
       star: '<svg viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>',
-      receipt: '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6m-6 4h6"/></svg>'
+      receipt: '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6m-6 4h6"/></svg>',
+      heart: '<svg viewBox="0 0 24 24"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.7 4.6 7.2 4.6c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.5 0 5.6 3.4 4.4 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg>'
     };
     var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
     var money = function(n){ return 'EGP ' + (Math.round(n * 100) / 100).toLocaleString('en-US'); };
@@ -651,6 +652,7 @@ footer svg{height:28px;width:auto;display:block}
     function demoCart(){ if (!lines(st.cart).length) menu.forEach(function(m){ if (DEMO.indexOf(m[2]) >= 0) st.cart[m[0]] = 1; }); }
     function place(){
       demoCart();
+      if (st.paid) { st.placed = []; st.paid = false; }
       st.earned = Math.floor(sums(lines(st.cart)).sub); st.points += st.earned;
       st.placed.push(st.cart); st.cart = {}; st.notes = {};
       st.served = false; st.asked = false; st.method = null; st.fresh = true;
@@ -725,16 +727,21 @@ footer svg{height:28px;width:auto;display:block}
         '\n\nWhen you’re done, tap Checkout to pay.', [['OK', function(){ ctx.fresh('home'); }]]);
     }
 
-    function checkout(keep){
+    /* keep: redrawn in place; asking: drawn under the Bill requested note, which starts the wait itself */
+    function checkout(keep, asking){
       var ls = tab(), s = sums(ls), html = head('Checkout') + '</div><div class="lv-body"><p class="lv-label">Your table</p>' +
         '<div class="lv-card"><div class="lv-item">' + I.table + '<p><b>Table 7</b><small>tap@ · Alexandria</small></p></div></div>';
       clearTimeout(serving);
       if (!ls.length) {
         html += '<div class="lv-card lv-empty">' + I.receipt + '<b>Nothing to pay yet</b><small>Order from Order now. Once your order is served, come back here to pay.</small>' +
           '<button type="button" class="lv-link" data-go="order">Order now</button></div></div>';
+      } else if (st.paid) {
+        html += '<div class="lv-card lv-empty">' + I.heart + '<b>All paid. Thank you!</b><small>Enjoy the rest of your day.</small></div></div>';
       } else if (st.asked) {
         html += '<div class="lv-card"><div class="lv-item">' + I.done + '<p><b>Bill requested · ' + (st.method === 'card' ? 'Card' : 'Cash') + '</b><small>' +
-          money(s.total) + ' · The staff are on their way.</small></p></div></div></div>';
+          money(s.total) + ' · The staff are on their way.</small></p></div></div>' +
+          '<p class="lv-wait">In this demo the staff mark it paid in a few seconds.</p></div>';
+        if (!asking) settle();
       } else if (!st.served) {
         html += '<div class="lv-card"><div class="lv-item">' + I.clock + '<p><b>Still being prepared</b><small>' + items(s.n) + ' · You can pay once it’s served.</small></p></div></div>' +
           '<p class="lv-wait">In this demo the kitchen serves it in a few seconds.</p></div>';
@@ -761,9 +768,17 @@ footer svg{height:28px;width:auto;display:block}
     function ask(){
       if (!st.method) return ctx.note('Choose Card or Cash first.');
       var total = sums(tab()).total;
-      st.asked = true; checkout(true);
+      st.asked = true; checkout(true, true);
       dialog('Bill requested', money(total) + ' by ' + (st.method === 'card' ? 'Card' : 'Cash') + '.\n\n' +
-        (st.method === 'card' ? 'The staff are on their way with the card machine.' : 'The staff are on their way with your bill.'), [['OK']]);
+        (st.method === 'card' ? 'The staff are on their way with the card machine.' : 'The staff are on their way with your bill.'), [['OK', settle]]);
+    }
+    /* in the restaurant, staff mark the bill paid on Live orders */
+    function settle(){
+      clearTimeout(serving);
+      serving = setTimeout(function(){
+        st.paid = true;
+        if (view(ctx.curId()) === 'checkout') { checkout(true); ctx.note('The staff marked your bill paid.'); }
+      }, 4500);
     }
 
     function bind(root){
@@ -798,7 +813,7 @@ footer svg{height:28px;width:auto;display:block}
       if (!id) return null;
       if (id === 'order-placed') return 'placed';
       if (id === 'order~view-cart-empty' || /^cart(~|$)/.test(id)) return 'cart';
-      if (/^order(-added)?(~|$)/.test(id)) return 'order';
+      if (/^order(~|$)/.test(id)) return 'order';
       if (/^(checkout|bill-requested)/.test(id) || id === 'home~checkout') return 'checkout';
       return null;
     }
@@ -812,13 +827,13 @@ footer svg{height:28px;width:auto;display:block}
       leave: leave,
       /* a listed screen picked from the list starts from what it shows */
       preset: function(id){
-        if (id === 'order-added' || id === 'cart') demoCart();
+        if (id === 'cart') demoCart();
         if (/^(checkout|bill-requested)/.test(id)) {
           if (!st.placed.length) place();
           st.fresh = false;
           st.served = id !== 'checkout-preparing';
-          st.asked = id === 'bill-requested';
-          st.method = id === 'checkout-card' || st.asked ? 'card' : null;
+          st.asked = st.paid = id === 'bill-requested';
+          st.method = st.asked ? 'card' : null;
         }
       },
       desc: function(v, s){ return s.n != null ? s.desc : DESC[v]; },
@@ -980,7 +995,7 @@ footer svg{height:28px;width:auto;display:block}
   /* the screens look as they do in the app; a button lights up under the pointer, and "show what you can
      tap" outlines them all */
   var hintsOn = false;
-  fetch('img/screens/screens.json?v=31d3777e').then(function(r){ return r.json(); }).then(function(DATA){
+  fetch('img/screens/screens.json?v=c3bfba66').then(function(r){ return r.json(); }).then(function(DATA){
   document.querySelectorAll('[data-proto]').forEach(function(box){
     var sections = DATA.screens[box.dataset.proto], all = [], byId = {};
     sections.forEach(function(sec){ sec[1].forEach(function(s){ s.n = all.length; all.push(s); byId[s.id] = s; }); });
@@ -1113,6 +1128,7 @@ footer svg{height:28px;width:auto;display:block}
       if (kind === 'final') return note('In the app this deletes it after you confirm. The demo keeps its data.');
       if (/print/i.test(name)) return note('This opens the print dialog for the receipt printer.');
       if (/password reset/i.test(name)) return note('This emails them a link to set a new password.');
+      if (/^restaurant staff login$/i.test(name)) return note('This opens the sign-in for the restaurant\u2019s owner and cashiers, shown in the dashboard and till sections.');
       if (kind === 'demo') return note('The demo goes no further with “' + name + '”. ← takes you back.');
       note('\u201c' + name + '\u201d works in the app, with nothing new to show here.');
     }
